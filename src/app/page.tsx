@@ -11,12 +11,20 @@ export default function Home() {
       <div>
         {posts.map((post) => (
           <div key={post.id}>
-            {post.media && post.media.type === 'image' && (
+            {post.media && post.media.type === 'image' ? (
               <div className="flex justify-center items-center">
                 <img
                   src={post.media.url}
                   alt="Post Media"
-                  className="max-w-[200px] h-auto"
+                  className="w-[75px] h-[75px] rounded-full border-slate-500 border-[1px] mt-4"
+                />
+              </div>
+            ) : (
+              <div className="flex justify-center items-center">
+                <img
+                  src="/placeholder.png"
+                  alt="Default Image"
+                  className="w-[75px] h-[75px] rounded-full border-slate-500 border-[1px] mt-4"
                 />
               </div>
             )}
@@ -28,3 +36,4 @@ export default function Home() {
     </div>
   );
 }
+

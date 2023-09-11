@@ -1,34 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <img src="https://github.com/breadscorner/Hark/blob/main/Screenshot%202023-09-09%20at%203.00.18%20PM.png?raw=true" alt="Hark Logo" width="200" />
+</p>
 
-## Getting Started
+<h1 align="center">Hark - Twitter Clone</h1>
 
-First, run the development server:
+<p align="center">
+  Hark is a Twitter clone built with React and Next.js, designed to provide a familiar Twitter-like experience with the following core features:
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<h2 align="center">Features</h2>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Home Feed
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- View a real-time feed of tweets from users you follow.
+- Engage with posts by liking and commenting on them.
+- Stay updated with the latest tweets from your network.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Posts Page
 
-## Learn More
+- Access a dedicated page to view all your posts.
+- Easily manage and edit your own tweets.
+- Keep track of your post history in one place.
 
-To learn more about Next.js, take a look at the following resources:
+### Add Post
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Compose and share tweets with your followers.
+- Include text and media in your posts.
+- Share your thoughts, links, images, or anything you'd like with your audience.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Search Page
 
-## Deploy on Vercel
+- Discover new users and tweets through the search feature.
+- Search for specific users or keywords.
+- Explore a wide range of content within the Hark community.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### User Profile Page
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- View detailed profiles of other users.
+- See a user's posts, followers, and who they are following.
+- Get to know other users better by exploring their activity and posts.
+
+<h2 align="center">Technologies Used</h2>
+
+- React: A JavaScript library for building user interfaces.
+- Next.js: A React framework for building server-rendered web applications.
+- Firebase: A cloud-based platform for building web and mobile applications.
+- Redux: A predictable state container for managing application data.
+- Real-time Database: Firebase Realtime Database for real-time data synchronization.
+- Authentication: Firebase Authentication for user registration and login.
+- CSS Modules: For styling components in a modular way.
+- WebSocket: For real-time communication and notifications.
+
+<p align="center">
+  &copy; 2023 Breadscorner. Licensed under the MIT License.
+</p>

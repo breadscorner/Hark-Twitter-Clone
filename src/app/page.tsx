@@ -1,4 +1,4 @@
-import * as fakeDB from '@/fake-db';
+// import * as fakeDB from '@/fake-db';
 
 export default function Home() {
 

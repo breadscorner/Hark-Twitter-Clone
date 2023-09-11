@@ -1,11 +1,21 @@
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en">
-      
-      </html>
-)
+import React, { ReactNode } from 'react';
+
+interface LayoutProps {
+  children: ReactNode;
 }
+
+export default function Layout({ children }: LayoutProps) {
+  return (
+    <div className="min-h-screen">
+      <main>
+        {children}
+      </main>
+    </div>
+  );
+}
+
+
+
+
+
+

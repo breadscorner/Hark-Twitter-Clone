@@ -14,17 +14,41 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className=
-        {twMerge(inter.className)}>
-        <h1 className="text-sm">HARK</h1>
-        <NavBar />
+      <body className={twMerge(inter.className)}>
+        <div className="grid grid-cols-3">
+          {/* Left Column */}
+          <div className="col-span-1 flex items-center">
+            <img
+              src="/hark.png"
+              className="m-1 w-12 h-12 rounded-full overflow-hidden object-cover"
+              alt="hark logo"
+            />
+            <h1 className="text-sm">HARK</h1>
+          </div>
+          
+          {/* Middle Column (Centered) */}
+          <div className="col-span-1 flex justify-center items-center mt-4">
+            <NavBar />
+          </div>
+          
+          {/* Right Column */}
+          <div className="col-span-1"></div>
+        </div>
         <main>{children}</main>
       </body>
     </html>
-  )
+  );
 }
+
+
+
+
+
+
+
+
 

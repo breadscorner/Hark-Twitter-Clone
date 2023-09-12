@@ -1,6 +1,6 @@
 export default function Post({ params }: {params: {id: string}}) {
   const someJSX = [1, 2, 3, 4, 5].map(value => <div>some JSX {value}</div>);
-  
+
   return (
     <div className="text-center">
       <h1 className="text-lg">Post</h1>

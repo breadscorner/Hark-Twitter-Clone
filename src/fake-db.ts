@@ -22,6 +22,8 @@ export type Post = {
   content: string
   likes: number
   replies: number
+  rePosts: number
+  views: number
   replyId?: number
   media?: Media
 }
@@ -29,9 +31,24 @@ export type Post = {
 const users: User[] = [
   {
     id: 1,
-    username: "sam",
-    avatar:
-      "https://images.clerk.dev/uploaded/img_2UwOmQYFLO3AhjoORmTygZ7OM8Y.png",
+    username: "Brett Gill",
+    avatar: "https://www.gravatar.com/avatar/?d=mp",
+    firstName: "John",
+    lastName: "Doe",
+    followers: 100,
+  },
+  {
+    id: 2,
+    username: "Jun Choi",
+    avatar: "https://www.gravatar.com/avatar/?d=mp",
+    firstName: "Jane",
+    lastName: "Doe",
+    followers: 100,
+  },
+  {
+    id: 3,
+    username: "Sam Meech-Ward",
+    avatar: "https://images.clerk.dev/uploaded/img_2UwOmQYFLO3AhjoORmTygZ7OM8Y.png",
     firstName: "saM",
     lastName: "saM",
     followers: 100,
@@ -41,24 +58,107 @@ const users: User[] = [
 const posts: Post[] = [
   {
     id: 1,
-    user: users[1],
-    date: "2024-01-01T12:00:00.000Z",
+    user: users[0],
+    date: "2022-01-01T12:00:00.000Z",
     content:
-      "Just some content to get us started. This is a post with some content. It's not very interesting, but it's a post.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
     likes: 10,
-    replies: 0,
+    replies: 2,
+    rePosts: 1,
+    views: 100,
   },
   {
-    id: 1,
+    id: 2,
+    replyId: undefined,
     user: users[1],
-    date: "2024-01-01T12:00:00.000Z",
-    content: "This one is slightly more interesting. It has an image.",
+    date: "2023-08-01T12:00:00.000Z",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
     likes: 10,
     replies: 0,
+    rePosts: 1,
+    views: 100,
+    media: undefined,
+  },
+  {
+    id: 3,
+    replyId: undefined,
+    user: users[2],
+    date: "2024-01-01T12:00:00.000Z",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
+    likes: 10,
+    replies: 0,
+    rePosts: 1,
+    views: 100,
     media: {
       id: 1,
       type: "image",
       url: "https://picsum.photos/seed/picsum/200/300",
+      width: 200,
+      height: 300,
+    },
+  },
+  {
+    id: 4,
+    replyId: undefined,
+    user: users[1],
+    date: "2023-08-01T12:00:00.000Z",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
+    likes: 10,
+    replies: 0,
+    rePosts: 1,
+    views: 100,
+    media: {
+      id: 2,
+      type: "image",
+      url: "https://picsum.photos/seed/picsum/300/300",
+      width: 200,
+      height: 300,
+    },
+  },
+  {
+    id: 5,
+    replyId: undefined,
+    user: users[0],
+    date: "2022-01-01T12:00:00.000Z",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
+    likes: 10,
+    replies: 0,
+    rePosts: 1,
+    views: 100,
+    media: undefined,
+  },
+  {
+    id: 6,
+    replyId: 1,
+    user: users[0],
+    date: "2022-01-01T12:00:00.000Z",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
+    likes: 10,
+    replies: 0,
+    rePosts: 1,
+    views: 100,
+    media: undefined,
+  },
+  {
+    id: 7,
+    replyId: 1,
+    user: users[1],
+    date: "2023-08-01T12:00:00.000Z",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
+    likes: 10,
+    replies: 0,
+    rePosts: 1,
+    views: 100,
+    media: {
+      id: 2,
+      type: "image",
+      url: "https://picsum.photos/seed/picsum/500/500",
       width: 200,
       height: 300,
     },

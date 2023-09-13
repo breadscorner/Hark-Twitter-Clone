@@ -1,7 +1,7 @@
 import * as fakeDB from '@/fake-db';
 import { type Post } from '@/fake-db';
 import Link from 'next/link';
-import image from 'next/image';
+import Image from 'next/image';
 
 export default function Home() {
   // Fetch posts from fakeDB
@@ -18,18 +18,22 @@ export default function Home() {
 
                 {post.user.avatar === 'image' ? (
                   <div className="flex justify-center items-center">
-                    <img
+                    <Image
                       src={post.user?.avatar || "/placeholder.png"}
                       alt="Post Image"
-                      className="w-[75px] h-[75px] rounded-full border-slate-500 border-[1px] mt-4"
+                      width={75}
+                      height={75}
+                      className="rounded-full border-slate-500 border-[1px] mt-4"
                     />
                   </div>
                 ) : (
                   <div className="flex justify-center items-center">
-                    <img
+                    <Image
                       src={post.user?.avatar || "/placeholder.png"}
                       alt="User Image"
-                      className="w-[75px] h-[75px] rounded-full border-slate-500 border-[1px] mt-4"
+                      width={75}
+                      height={75}
+                      className="rounded-full border-slate-500 border-[1px] mt-4"
                     />
                   </div>
                 )}
@@ -39,9 +43,11 @@ export default function Home() {
             </div>
             {post.media?.url ? (
               <div className="flex justify-center items-center">
-                <img
-                  src={post.media?.url}
+                <Image
+                  src={post.media.url}
                   alt="Post Image"
+                  width={post.media?.width}
+                  height={post.media?.height}
                   className="rounded-lg object-cover"
                 />
               </div>

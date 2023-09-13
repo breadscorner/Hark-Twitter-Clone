@@ -48,7 +48,7 @@ const users: User[] = [
   {
     id: 3,
     username: "Sam Meech-Ward",
-    avatar: "https://images.clerk.dev/uploaded/img_2UwOmQYFLO3AhjoORmTygZ7OM8Y.png",
+    avatar: "https://cdn.pixabay.com/photo/2023/09/10/00/49/lovebird-8244066_1280.jpg",
     firstName: "saM",
     lastName: "saM",
     followers: 100,

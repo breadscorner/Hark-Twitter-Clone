@@ -2,6 +2,6 @@
 
 module.exports = {
   images: {
-    domains: ['www.gravatar.com', 'picsum.photos', 'images.clerk.dev'],
+    domains: ['www.gravatar.com', 'picsum.photos', 'images.clerk.dev', 'cdn.pixabay.com'],
   },
 };

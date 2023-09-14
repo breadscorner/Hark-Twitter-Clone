@@ -17,13 +17,13 @@ export default function Profile() {
           <h2 className="text-[1em] font-semibold">{user?.firstName + ' ' + user?.lastName}</h2>
           <p className="pt-8 pb-4 text-[1em] font-semibold">{user?.followers} Followers</p>
         </div>
-        <div className="col-span-1 flex justify-end items-start">
+        <div className="rounded-full col-span-1 flex justify-end items-start">
           <Image
             src={user?.avatar || "../placeholder.png"}
             alt="User Image"
             width={125}
             height={125}
-            className="rounded-full border-slate-500 border-[1px] mt-4 object-cover min-h-[75]"
+            className="rounded-full border-slate-500 border-[1px] mt-4"
           />
         </div>
       </div>
@@ -45,10 +45,10 @@ export default function Profile() {
             )}
 
             {/* Likes and Replies */}
-              <div className='flex mt-4 text-left font-semibold'>
-                <p>{post.likes} Likes</p>
-                <p className='ml-4'>{post.replies} Replies</p>
-              </div>
+            <div className='flex mt-4 text-left font-semibold'>
+              <p>{post.likes} Likes</p>
+              <p className='ml-4'>{post.replies} Replies</p>
+            </div>
           </div>
         ))}
       </div>

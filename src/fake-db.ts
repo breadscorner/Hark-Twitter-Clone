@@ -32,7 +32,7 @@ const users: User[] = [
   {
     id: 1,
     username: "Breadscorner",
-    avatar: "https://www.gravatar.com/avatar/?d=mp",
+    avatar: "https://cdn.pixabay.com/photo/2015/03/08/17/25/musician-664432_1280.jpg",
     firstName: "Brett",
     lastName: "Gill",
     followers: 189,

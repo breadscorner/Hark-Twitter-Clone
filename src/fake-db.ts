@@ -35,7 +35,7 @@ const users: User[] = [
     avatar: "https://www.gravatar.com/avatar/?d=mp",
     firstName: "John",
     lastName: "Doe",
-    followers: 100,
+    followers: 189,
   },
   {
     id: 2,
@@ -43,7 +43,7 @@ const users: User[] = [
     avatar: "https://www.gravatar.com/avatar/?d=mp",
     firstName: "Jane",
     lastName: "Doe",
-    followers: 100,
+    followers: 58,
   },
   {
     id: 3,
@@ -62,7 +62,7 @@ const posts: Post[] = [
     date: "2022-01-01T12:00:00.000Z",
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
-    likes: 10,
+    likes: 100,
     replies: 2,
     rePosts: 1,
     views: 100,
@@ -74,7 +74,7 @@ const posts: Post[] = [
     date: "2023-08-01T12:00:00.000Z",
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
-    likes: 10,
+    likes: 47,
     replies: 0,
     rePosts: 1,
     views: 100,
@@ -87,7 +87,7 @@ const posts: Post[] = [
     date: "2024-01-01T12:00:00.000Z",
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
-    likes: 10,
+    likes: 17,
     replies: 0,
     rePosts: 1,
     views: 100,

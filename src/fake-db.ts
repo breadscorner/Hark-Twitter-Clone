@@ -31,10 +31,10 @@ export type Post = {
 const users: User[] = [
   {
     id: 1,
-    username: "Brett Gill",
+    username: "Breadscorner",
     avatar: "https://www.gravatar.com/avatar/?d=mp",
-    firstName: "John",
-    lastName: "Doe",
+    firstName: "Brett",
+    lastName: "Gill",
     followers: 189,
   },
   {

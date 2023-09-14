@@ -10,7 +10,7 @@ const user = getUser('Brett');
     <div className="post-container w-[75%] mx-auto my-4 p-4 rounded-lg shadow-md">
       <div className="flex justify-center items-center">
         <Image
-          src={user?.avatar || "../placeholder.png"}
+          src={user?.avatar || "/placeholder.png"}
           alt="User Image"
           width={75}
           height={75}

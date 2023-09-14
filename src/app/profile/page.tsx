@@ -45,10 +45,10 @@ export default function Profile() {
             )}
 
             {/* Likes and Replies */}
-            <div className="mt-4">
-              <p className="text-[1em] font-semibold">{post.likes} Likes</p>
-              <p className="text-[1em] font-semibold">{post.replies} Replies</p>
-            </div>
+              <div className='flex mt-4 text-left font-semibold'>
+                <p>{post.likes} Likes</p>
+                <p className='ml-4'>{post.replies} Replies</p>
+              </div>
           </div>
         ))}
       </div>

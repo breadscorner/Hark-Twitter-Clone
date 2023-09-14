@@ -9,7 +9,7 @@ export default function Home() {
     <div className="text-center">
       <div>
         {posts.map((post) => (
-          <div className="post-container w-[65%] mx-auto my-4 p-4 rounded-lg shadow-md">
+          <div className="post-container w-[65%] mx-auto px-4 rounded-lg shadow-md">
             <div key={post.id}>
               <div className='flex items-center'>
                 <div className="flex justify-center items-center">
@@ -21,15 +21,11 @@ export default function Home() {
                     className="rounded-full border-slate-500 border-[1px] mt-4 object-cover  min-h-[75]"
                   />
                 </div>
-                <h2 className='mt-4 ml-5'>{post.user?.username || "Anonymous User"}</h2>
+                <h2 className='mt-4 ml-5 font-semibold text-[1em]'>{post.user?.username || "Anonymous User"}</h2>
               </div>
               <p className='flex ml-[100px] text-left'>{post.content}</p>
               <PostIcons />
               {/* Likes & followers */}
-              <div className='flex ml-[100px] mt-4 text-left'>
-                <p>{post.likes} likes</p>
-                <p className='ml-4'>{post.user.followers} followers</p>
-              </div>
             </div>
             {post.media?.url ? (
               <div className="mt-4 flex justify-center items-center">
@@ -42,6 +38,10 @@ export default function Home() {
                 />
               </div>
             ) : null}
+              <div className='flex ml-[100px] mt-4 pb-4 text-left font-semibold'>
+                <p>{post.likes} likes</p>
+                <p className='ml-4'>{post.user.followers} followers</p>
+              </div>
           </div>
         ))}
       </div>

@@ -8,23 +8,21 @@
 
 ### Home Feed
 
-- View a real-time feed of tweets from users you follow.
 - Engage with posts by liking and commenting on them.
 - Stay updated with the latest tweets from your network.
 
 ### Posts Page
 
 - Access a dedicated page to view all your posts.
-- Easily manage and edit your own tweets.
 - Keep track of your post history in one place.
 
-### Add Post
+### Add Post(Not-functional)
 
 - Compose and share tweets with your followers.
 - Include text and media in your posts.
 - Share your thoughts, links, images, or anything you'd like with your audience.
 
-### Search Page
+### Search Page(Not-functional)
 
 - Discover new users and tweets through the search feature.
 - Search for specific users or keywords.
@@ -32,7 +30,6 @@
 
 ### User Profile Page
 
-- View detailed profiles of other users.
 - See a user's posts, followers, and who they are following.
 - Get to know other users better by exploring their activity and posts.
 
@@ -40,12 +37,8 @@
 
 - React: A JavaScript library for building user interfaces.
 - Next.js: A React framework for building server-rendered web applications.
-- Firebase: A cloud-based platform for building web and mobile applications.
-- Redux: A predictable state container for managing application data.
-- Real-time Database: Firebase Realtime Database for real-time data synchronization.
-- Authentication: Firebase Authentication for user registration and login.
-- CSS Modules: For styling components in a modular way.
-- WebSocket: For real-time communication and notifications.
+
+<p>Disclaimer: Many features are currently for aesthetics only.</p>
 
 <p align="center">
   &copy; 2023 Breadscorner. Licensed under the MIT License.

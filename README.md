@@ -38,7 +38,7 @@
 - React: A JavaScript library for building user interfaces.
 - Next.js: A React framework for building server-rendered web applications.
 
-<p>Disclaimer: Many features are currently for aesthetics only.</p>
+<h2 align="center">Disclaimer: Many features are currently for aesthetics only.</h2>
 
 <p align="center">
   &copy; 2023 Breadscorner. Licensed under the MIT License.

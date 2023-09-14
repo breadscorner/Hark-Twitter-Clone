@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/breadscorner/Hark/blob/main/Screenshot%202023-09-09%20at%203.00.18%20PM.png?raw=true" alt="Hark Logo" width="200" />
-</p>
-
 <h1 align="center">Hark - Twitter Clone</h1>
 
 <p align="center">

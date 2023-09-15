@@ -1,6 +1,7 @@
 import * as fakeDB from '@/fake-db';
 import Image from 'next/image';
 import PostIcons from '@/app/post-icons';
+
 export default function Home() {
 
   const posts = fakeDB.getPosts();

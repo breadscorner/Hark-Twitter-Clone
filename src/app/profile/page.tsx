@@ -1,4 +1,3 @@
-import * as fakeDB from '@/fake-db';
 import Image from 'next/image';
 import { getPostsForUser, getUser } from '@/fake-db';
 
@@ -10,8 +9,6 @@ export default function Profile() {
   return (
     <div>
       <div className="grid grid-cols-2 gap-4 w-[65%] mx-auto px-4 rounded-lg shadow-md">
-
-
         <div className="col-span-1">
           <h1 className="text-[2.5em] font-bold">{user?.username}</h1>
           <h2 className="text-[1em] font-semibold">{user?.firstName + ' ' + user?.lastName}</h2>
@@ -27,6 +24,7 @@ export default function Profile() {
           />
         </div>
       </div>
+      
       {/* Posts of breadscorner */}
       <div className="w-[65%] mx-auto my-4 rounded-lg shadow-md">
         {posts.map((post) => (

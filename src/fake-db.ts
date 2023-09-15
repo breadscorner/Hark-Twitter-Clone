@@ -47,7 +47,7 @@ const users: User[] = [
   },
   {
     id: 3,
-    username: "Beefcake",
+    username: "Meechwalker",
     avatar: "https://cdn.pixabay.com/photo/2017/12/24/13/51/megaphone-3036950_1280.jpg",
     firstName: "Sam",
     lastName: "Meech-Ward",

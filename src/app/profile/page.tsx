@@ -2,29 +2,32 @@ import Image from 'next/image';
 import { getPostsForUser, getUser } from '@/fake-db';
 
 export default function Profile() {
-
   const posts = getPostsForUser('Breadscorner');
   const user = getUser('Breadscorner');
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-4 w-[65%] mx-auto px-4 rounded-lg shadow-md">
-        <div className="col-span-1">
+      <div className="flex flex-row w-[65%] mx-auto px-4 rounded-lg shadow-md">
+        <div className="flex flex-col flex-grow">
           <h1 className="text-[2.5em] font-bold">{user?.username}</h1>
-          <h2 className="text-[1em] font-semibold">{user?.firstName + ' ' + user?.lastName}</h2>
-          <p className="pt-8 pb-4 text-[1em] font-semibold">{user?.followers} Followers</p>
+          <h2 className="text-[1em] font-semibold">
+            {user?.firstName + ' ' + user?.lastName}
+          </h2>
+          <p className="pt-8 pb-4 text-[1em] font-semibold">
+            {user?.followers} Followers
+          </p>
         </div>
-        <div className="col-span-1 flex justify-end items-start">
+        <div className="relative w-[125px] h-[125px] rounded-full overflow-hidden mt-4 border-slate-500 border-[1px] justify-end self-start">
           <Image
             src={user?.avatar || "../placeholder.png"}
-            alt="User Image"
+            alt="Profile Image"
             width={125}
             height={125}
-            className="rounded-full border-slate-500 border-[1px] mt-4"
+            className="object-cover"
           />
         </div>
       </div>
-      
+
       {/* Posts of breadscorner */}
       <div className="w-[65%] mx-auto my-4 rounded-lg shadow-md">
         {posts.map((post) => (
@@ -53,8 +56,3 @@ export default function Profile() {
     </div>
   );
 }
-
-
-
-
-

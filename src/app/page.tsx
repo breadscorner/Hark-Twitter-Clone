@@ -13,13 +13,12 @@ export default function Home() {
           <div className="post-container w-[65%] mx-auto px-4 rounded-lg shadow-md">
             <div key={post.id}>
               <div className='flex items-center'>
-                <div className="flex justify-center items-center">
+                <div className="relative w-[75px] h-[75px] rounded-full overflow-hidden mt-4">
                   <Image
                     src={post.user?.avatar || "../placeholder.png"}
                     alt="Post Image"
-                    width={75}
-                    height={75}
-                    className="rounded-full border-slate-500 border-[1px] mt-4 object-cover"
+                    fill={true}
+                    className="border-slate-500 border-[1px] object-cover"
                   />
                 </div>
                 <h2 className='mt-4 ml-5 font-semibold text-[1em]'>{post.user?.username || "Anonymous User"}</h2>

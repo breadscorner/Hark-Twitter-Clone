@@ -32,7 +32,7 @@ const users: User[] = [
   {
     id: 1,
     username: "Breadscorner",
-    avatar: "https://cdn.pixabay.com/photo/2015/03/08/17/25/musician-664432_1280.jpg",
+    avatar: "https://cdn.pixabay.com/photo/2015/01/13/13/20/guy-598180_1280.jpg",
     firstName: "Brett",
     lastName: "Gill",
     followers: 189,
@@ -40,7 +40,7 @@ const users: User[] = [
   {
     id: 2,
     username: "Juniper",
-    avatar: "https://www.gravatar.com/avatar/?d=mp",
+    avatar: "https://cdn.pixabay.com/photo/2019/11/21/08/30/smile-4642056_1280.png",
     firstName: "June",
     lastName: "Choi",
     followers: 58,
@@ -48,8 +48,8 @@ const users: User[] = [
   {
     id: 3,
     username: "Beefcake",
-    avatar: "https://cdn.pixabay.com/photo/2023/09/10/00/49/lovebird-8244066_1280.jpg",
-    firstName: "Same",
+    avatar: "https://cdn.pixabay.com/photo/2017/12/24/13/51/megaphone-3036950_1280.jpg",
+    firstName: "Sam",
     lastName: "Meech-Ward",
     followers: 100,
   },

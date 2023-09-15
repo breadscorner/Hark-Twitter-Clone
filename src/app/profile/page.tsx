@@ -17,7 +17,7 @@ export default function Profile() {
           <h2 className="text-[1em] font-semibold">{user?.firstName + ' ' + user?.lastName}</h2>
           <p className="pt-8 pb-4 text-[1em] font-semibold">{user?.followers} Followers</p>
         </div>
-        <div className="rounded-full col-span-1 flex justify-end items-start">
+        <div className="col-span-1 flex justify-end items-start">
           <Image
             src={user?.avatar || "../placeholder.png"}
             alt="User Image"
@@ -34,13 +34,13 @@ export default function Profile() {
             <p>{post.content}</p>
 
             {/* Images */}
-            {post.media && post.media.type === 'image' && (
+            {post.media?.url === 'image' && (
               <Image
-                src={post.media.url}
+                src={post.media?.url}
                 alt="Post Image"
                 width={post.media.width}
                 height={post.media.height}
-                className="mt-4 object-cover min-h-[75]"
+                className="mt-4 object-cover"
               />
             )}
 

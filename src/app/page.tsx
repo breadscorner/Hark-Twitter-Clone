@@ -30,11 +30,11 @@ export default function Home() {
             {post.media?.url ? (
               <div className="flex justify-center items-center">
                 <Image
-                  src={post.user?.avatar || "../placeholder.png"}
+                  src={post.media?.url || "../placeholder.png"}
                   alt="Post Image"
-                  width={75}
-                  height={75}
-                  className="rounded-full border-slate-500 border-[1px] mt-4"
+                  width={post.media?.width || 75}
+                  height={post.media?.height || 75}
+                  className="border-slate-500 border-[1px] mt-4"
                 />
               </div>
             ) : null}

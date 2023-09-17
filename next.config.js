@@ -4,4 +4,5 @@ module.exports = {
   images: {
     domains: ['www.gravatar.com', 'picsum.photos', 'images.clerk.dev', 'cdn.pixabay.com'],
   },
+  reactStrictMode: true,
 };

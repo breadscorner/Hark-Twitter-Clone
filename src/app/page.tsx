@@ -25,6 +25,7 @@ export default function Home() {
               </div>
               <p className='flex ml-[100px] text-left'>{post.content}</p>
               <PostIcons />
+              
               {/* Likes & followers */}
             </div>
             {post.media?.url ? (

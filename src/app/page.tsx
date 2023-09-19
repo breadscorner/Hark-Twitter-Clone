@@ -1,12 +1,11 @@
+'use client'
+
 import * as fakeDB from '@/fake-db';
 import Image from 'next/image';
 import PostIcons from '@/app/post-icons';
 import React, { useState } from 'react';
-import { useClient } from 'react';
-import Modal from '@/app/post-modal';
 
 export default function Home() {
-  useClient(); // Enable client components
 
   const posts = fakeDB.getPosts();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -57,17 +56,24 @@ export default function Home() {
             </div>
           </div>
         ))}
-      </div>
 
+      </div>
       {/* Button to open the modal */}
-      <button onClick={openModal}>Open Modal</button>
-      
+      <button
+        className="bg-slate-500 text-white px-4 py-2 rounded-lg shadow-md mt-4"
+        onClick={() => openModal() }
+      >
+        Open Modal
+      </button>
+
       {/* Render the modal conditionally */}
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <div className="flex fixed top-0 justify-center h-screen w-full" onClick={() => closeModal() }>
+          <div className="m-auto w-[50%] h-[50%] bg-white rounded-lg shadow-md">
           <h2>Modal Content</h2>
           <p>This is the content of the modal.</p>
-        </Modal>
+        </div>
+        </div>
       )}
     </div>
   );

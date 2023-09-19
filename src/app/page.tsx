@@ -29,7 +29,7 @@ export default function Home() {
     <div className="text-center">
       <div>
         {posts.map((post) => (
-          <div className="post-container w-[65%] mx-auto px-4 border rounded-lg shadow-md" key={post.id}>
+          <div className="post-container w-[65%] mx-auto my-4 px-4 border rounded-lg shadow-md" key={post.id}>
             <div>
               <div className='flex items-center' onClick={() => openModal(post)}>
                 <div className="relative w-[75px] h-[75px] rounded-full overflow-hidden mt-4 border-slate-500 border-[1px]">

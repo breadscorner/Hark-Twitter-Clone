@@ -69,7 +69,7 @@ export default function HomeFeed() {
       </div>
 
       {isModalOpen && selectedPost && (
-        <div className="flex fixed top-0 justify-center h-screen w-full backdrop-blur-sm cursor-none" onClick={() => closeModal()}>
+        <div className="flex fixed top-0 justify-center h-screen w-full backdrop-blur-sm cursor-default" onClick={() => closeModal()}>
           <div className="post-container w-[85%] m-auto max-h-[55%] overflow-y-scroll px-4 bg-white border rounded-lg shadow-md" key={selectedPost.id}>
             <div>
               <div className='flex items-center'>

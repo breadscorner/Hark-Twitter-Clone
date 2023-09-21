@@ -2,12 +2,13 @@ import Image from 'next/image';
 import { getPostsForUser, getUser } from '@/fake-db';
 
 export default function Profile() {
+
   const posts = getPostsForUser('Breadscorner');
   const user = getUser('Breadscorner');
 
   return (
     <div>
-      <div className="flex flex-row w-[65%] mx-auto px-4 rounded-lg shadow-md">
+      <div className="flex flex-row w-[65%] mx-auto px-4 border rounded-lg shadow-md">
         <div className="flex flex-col flex-grow">
           <h1 className="text-[2.5em] font-bold">{user?.username}</h1>
           <h2 className="text-[1em] font-semibold">
@@ -17,6 +18,8 @@ export default function Profile() {
             {user?.followers} Followers
           </p>
         </div>
+        
+        {/* Profile Image */}
         <div className="relative w-[125px] h-[125px] rounded-full overflow-hidden mt-4 border-slate-500 border-[1px] justify-end self-start">
           <Image
             src={user?.avatar || "../placeholder.png"}
@@ -29,9 +32,9 @@ export default function Profile() {
       </div>
 
       {/* Posts of breadscorner */}
-      <div className="w-[65%] mx-auto my-4 rounded-lg shadow-md">
+      <div className="w-[65%] mx-auto my-4 rounded-lg">
         {posts.map((post) => (
-          <div className="w-full mx-auto my-4 p-4 border-b shadow-md rounded-lg" key={post.id}>
+          <div className="w-full mx-auto mt-4 p-4 border shadow-md rounded-lg" key={post.id}>
             <p>{post.content}</p>
 
             {/* Images */}

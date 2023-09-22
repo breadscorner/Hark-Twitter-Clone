@@ -1,8 +1,8 @@
 export default function NotFound() {
   return (
-    <main className="text-center mt-10">
-      <h1 className="text-xxl">404</h1>
+    <div className="w-[65%] mx-auto my-4 px-4 border rounded-lg shadow-md">
+      <h1 className="text-xxl text-center">404</h1>
       <p>A custom not found page</p>
-    </main>
+    </div>
   )
 }

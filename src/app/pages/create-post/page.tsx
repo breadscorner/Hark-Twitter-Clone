@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getUser, getPostsForUser } from '@/fake-db';
+import { getUser } from '@/fake-db';
 
 export default function CreatePost() {
 

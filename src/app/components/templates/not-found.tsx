@@ -1,8 +1,13 @@
-export default function NotFound() {
+import Link from 'next/link';
+
+export default function Custom404() {
   return (
-    <div className="w-[65%] mx-auto my-4 px-4 border rounded-lg shadow-md">
-      <h1 className="text-xxl text-center">404</h1>
-      <p>A custom not found page</p>
+    <div className="text-center">
+      <h1 className="text-4xl font-bold">404 - Page Not Found</h1>
+      <p className="mt-2">The page you are looking for does not exist.</p>
+      <Link href="/">
+        <a className="mt-4 text-blue-500 hover:underline">Go back to the homepage</a>
+      </Link>
     </div>
-  )
+  );
 }

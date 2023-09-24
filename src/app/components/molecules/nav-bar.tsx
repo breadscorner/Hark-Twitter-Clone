@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 export default function NavBar() {
+  
   return (
     <div>
       <nav className="mb-4">

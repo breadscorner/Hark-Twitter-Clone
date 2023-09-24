@@ -67,8 +67,8 @@ export default function PostFeed() {
       </div>
 
       {isModalOpen && selectedPost && (
-        <div className="flex fixed top-0 justify-center h-screen w-full mx-auto my-4 px-4 backdrop-blur-sm cursor-pointer" onClick={() => closeModal()}>
-          <div className="w-full m-auto max-h-[55%] overflow-y-scroll px-4 bg-white border rounded-lg shadow-md" key={selectedPost.id}>
+        <div className="flex fixed top-0 justify-center h-screen w-full mx-auto my-4 px-4 backdrop-blur-xl cursor-pointer" onClick={() => closeModal()}>
+          <div className="w-full m-auto lg:w-[65%] max-h-[55%] bg-white bg-opacity-10 overflow-y-scroll px-4 border rounded-lg shadow-md" key={selectedPost.id}>
             <div>
               <div className='flex items-center'>
                 <div className="relative w-[75px] h-[75px] rounded-full overflow-hidden mt-4 border-slate-500 border-[1px]">
@@ -82,7 +82,7 @@ export default function PostFeed() {
                 </div>
                 <h2 className='mt-4 ml-5 font-semibold text-[1em]'>{selectedPost.user?.username || "Anonymous User"}</h2>
               </div>
-              <p className='mt-2 md:ml-[100px] md:mt-4 text-left'>{selectedPost.content}</p>
+              <p className='mt-2 ml-[100px] md:mt-4 text-left'>{selectedPost.content}</p>
               <PostIcons />
               {/* Likes & followers & images */}
             </div>
@@ -97,7 +97,7 @@ export default function PostFeed() {
                 />
               </div>
             ) : null}
-            <div className='mt-2 md:mt-4 pb-4 justify-center md:justify-start font-semibold flex'>
+            <div className='mt-2 ml-[100px] md:mt-4 pb-4 justify-center md:justify-start font-semibold flex'>
               <p className='flex items-center'>{selectedPost.likes} Likes</p>
               <p className='ml-4 flex items-center'>{selectedPost.user.followers} Followers</p>
             </div>

@@ -5,8 +5,8 @@
 /* Define your color variables for light mode */
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 220, 220, 220; /* Slightly darker light grey color */
+  --background-end-rgb: 240, 240, 240;
 }
 
 /* Switch to dark mode using media query */
@@ -23,8 +23,8 @@ body {
   background: linear-gradient(
     to bottom,
     rgb(var(--background-start-rgb)),
-    rgb(240, 240, 240), /* Light grey color */
-    rgb(200, 200, 200) /* Slightly darker grey color */
+    rgb(210, 210, 210), 
+    rgb(200, 200, 200) 
   );
   color: rgb(var(--foreground-rgb));
 }
@@ -32,14 +32,4 @@ body {
 /* Make icons white */
 svg {
   fill: white;
-}
-
-/* Match navbar background to main background */
-.nav-bar {
-  background: linear-gradient(
-    to bottom,
-    rgb(var(--background-start-rgb)),
-    rgb(240, 240, 240), /* Light grey color */
-    rgb(200, 200, 200) /* Slightly darker grey color */
-  );
 }

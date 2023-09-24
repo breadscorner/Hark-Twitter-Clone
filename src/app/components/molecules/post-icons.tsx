@@ -6,11 +6,12 @@ import ShareIcon from '../atoms/share-icon';
 export default function PostIcons() {
 
   return (
-    <div className="ml-[100px] flex items-center">
+    <div className="flex justify-center items-center md:ml-[100px] md:justify-start">
       <LikeIcon />
       <CommentIcon />
       <RTIcon />
       <ShareIcon />
     </div>
+
   )
 }

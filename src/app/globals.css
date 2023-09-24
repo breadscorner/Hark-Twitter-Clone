@@ -23,7 +23,23 @@ body {
   background: linear-gradient(
     to bottom,
     rgb(var(--background-start-rgb)),
-    rgb(var(--background-end-rgb))
+    rgb(240, 240, 240), /* Light grey color */
+    rgb(200, 200, 200) /* Slightly darker grey color */
   );
   color: rgb(var(--foreground-rgb));
+}
+
+/* Make icons white */
+svg {
+  fill: white;
+}
+
+/* Match navbar background to main background */
+.nav-bar {
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(240, 240, 240), /* Light grey color */
+    rgb(200, 200, 200) /* Slightly darker grey color */
+  );
 }

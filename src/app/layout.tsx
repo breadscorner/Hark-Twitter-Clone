@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={twMerge(inter.className)}>
         
         {/* Navigation Bar */}
-        <div className="p-8 sticky z-10 top-0 bg-white flex justify-center">
+        <div className="p-8 sticky z-10 top-0 flex justify-center">
           <NavBar />
         </div>
 

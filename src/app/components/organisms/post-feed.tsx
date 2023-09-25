@@ -1,13 +1,13 @@
 'use client'
 
+import { Post } from '@/fake-db';
 import Image from 'next/image';
 import PostIcons from '@/app/components/molecules/post-icons';
 import React, { useState } from 'react';
 import { Post } from '@/fake-db';
 import * as fakeDB from '@/fake-db';
 
-export default function PostFeed() {
-  const posts = fakeDB.getPosts();
+export default function PostFeed({ posts}: { posts: Post[]}) {
 
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);

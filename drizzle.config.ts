@@ -9,7 +9,7 @@ export default {
   schema: "./src/db/schema/*",
   driver: "pg",
   dbCredentials: {
-    connectionString: process.env.DRIZZLE_DB_URL!, 
+    connectionString: process.env.DB_URL! as string, 
   },
   out: "./drizzle",
-} satisfies Config
+} satisfies Config;

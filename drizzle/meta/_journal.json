@@ -1,1 +1,13 @@
-{"version":"5","dialect":"pg","entries":[]}
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1695612726460,
+      "tag": "0000_wooden_nick_fury",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 export default function Search() {
   return (
-    <div className="w-[65%] mx-auto px-4 py-4 rounded-lg shadow-md text-center">
+    <div className="w-[65%] mx-auto px-4 py-4 rounded-lg border shadow-md text-center">
       <form className="flex flex-row items-center">
         <button className="flex items-center justify-center bg-black border-black border-[1px] rounded-l-lg p-4">
           <svg

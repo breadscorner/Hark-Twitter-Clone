@@ -1,20 +1,24 @@
-import Image from "next/image";
-import { getUser } from '@/fake-db';
+// import Image from "next/image";
 
-export default function CreatePost() {
-  
-  const user = getUser('Brett');
+import { db } from '@/db'
+import { users as usersList } from '@/db/schema/users'
+
+export default async function CreatePost() {
+
+  const users = await db.select().from(usersList);
 
   return (
     <div className="w-[65%] mx-auto mb-4 p-4 rounded-lg border shadow-md flex justify-center items-center">
       <form className="flex flex-col w-[75%] items-center">
-        <Image
-          src={user?.avatar || "/placeholder.png"}
+        {/* Why can't I use <Image component */}
+        <img
+          src={users[0].profileImage || "/placeholder.png"}
           alt="User Image"
           width={75}
           height={75}
           className="rounded-full border-slate-500 border-[1px] mt-4 object-cover"
         />
+
 
         {/* Title Input */}
         <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">
@@ -45,14 +49,14 @@ export default function CreatePost() {
         </label>
         <div className="flex justify-center items-center border rounded-lg w-full pt-4 m-4">
 
-        <input
-          type="file"
-          id="image"
-          name="image"
-          accept="image/*"
-          className=" p-2 mb-4"
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            className=" p-2 mb-4"
           />
-          </div>
+        </div>
 
         {/* Submit Button */}
         <button type="submit" className="bg-slate-500 text-white px-4 py-2 rounded-lg">

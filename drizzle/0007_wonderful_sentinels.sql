@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS "posts" (
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "users" (
 	"id" serial PRIMARY KEY NOT NULL,
+	"profile_image" text,
 	"username" text NOT NULL,
 	"first_name" text,
 	"last_name" text,

@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "f8e54974-6f68-493f-9447-22fe429bcf0a",
+  "id": "0bd95852-ab68-4fad-9aa5-071fa4ce5aec",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "posts": {
@@ -60,6 +60,12 @@
           "type": "serial",
           "primaryKey": true,
           "notNull": true
+        },
+        "profile_image": {
+          "name": "profile_image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         },
         "username": {
           "name": "username",

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import HomeIcon from '../atoms/nav-home-icon';
 import SearchIcon from '../atoms/nav-search-icon';
 import AddIcon from '../atoms/nav-add-icon';

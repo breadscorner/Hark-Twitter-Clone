@@ -10,6 +10,7 @@ interface PostModalProps {
 }
 
 export default function PostModal({ post, isModalOpen, closeModal }: PostModalProps) {
+  
   return isModalOpen && post !== null && (
     <div className="flex fixed top-0 justify-center h-screen w-full mx-auto my-4 px-4 backdrop-blur-xl cursor-pointer" onClick={closeModal}>
       <div className="w-full m-auto lg:w-[65%] max-h-[55%] bg-white bg-opacity-10 overflow-y-scroll px-4 border rounded-lg shadow-md" key={post.id}>

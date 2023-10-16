@@ -4,7 +4,7 @@ import { Post } from '@/fake-db';
 import Image from 'next/image';
 import PostIcons from '@/app/components/molecules/post-icons';
 import React, { useState } from 'react';
-import PostModal from './post-modal';
+import PostModal from '../molecules/post-modal';
 // import * as fakeDB from '@/fake-db';
 
 export default function PostFeed({ posts}: { posts: Post[]}) {

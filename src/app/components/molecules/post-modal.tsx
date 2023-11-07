@@ -1,5 +1,5 @@
 import React from 'react';
-import { Post } from '@/fake-db';
+import { Post } from '@/db/queries/postFeed';
 import Image from 'next/image';
 import PostIcons from '@/app/components/molecules/post-icons';
 
@@ -18,23 +18,24 @@ export default function PostModal({ post, isModalOpen, closeModal }: PostModalPr
           <div className='flex items-center'>
             <div className="relative w-[75px] h-[75px] rounded-full overflow-hidden mt-4 border-slate-500 border-[1px]">
               <Image
-                src={post.user?.avatar || "../placeholder.png"}
+                src={post.user.profileImage || "../placeholder.png"}
                 alt="Post Image"
                 width={75}
                 height={75}
                 className="object-cover"
               />
             </div>
-            <h2 className='mt-4 ml-5 font-semibold text-[1em]'>{post.user?.username || "Anonymous User"}</h2>
+            <h2 className='mt-4 ml-5 font-semibold text-[1em]'>{post.user.username || "Anonymous User"}</h2>
           </div>
           <p className='mt-2 ml-[100px] md:mt-4 text-left'>{post.content}</p>
           <PostIcons />
+          
           {/* Likes & followers & images */}
         </div>
         {post.media?.url ? (
           <div className="flex justify-center items-center">
             <Image
-              src={post.media?.url || "../placeholder.png"}
+              src={post.media.url || "../placeholder.png"}
               alt="Post Image"
               width={post.media?.width || 75}
               height={post.media?.height || 75}
@@ -42,10 +43,10 @@ export default function PostModal({ post, isModalOpen, closeModal }: PostModalPr
             />
           </div>
         ) : null}
-        <div className='mt-2 ml-[100px] md:mt-4 pb-4 justify-center md:justify-start font-semibold flex'>
+        {/* <div className='mt-2 ml-[100px] md:mt-4 pb-4 justify-center md:justify-start font-semibold flex'>
           <p className='flex items-center'>{post.likes} Likes</p>
           <p className='ml-4 flex items-center'>{post.user.followers} Followers</p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

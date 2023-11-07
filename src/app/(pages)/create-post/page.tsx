@@ -7,13 +7,13 @@ export default function CreatePost() {
 
   return (
     <div className="w-[65%] mx-auto mb-4 p-4 rounded-lg border shadow-md flex justify-center items-center">
-      <form className="flex flex-col w-[75%] items-center">
+      <form action="/create-post" method="POST" className="flex flex-col w-[75%] items-center">
         <Image
           src={user?.avatar || "/placeholder.png"}
           alt="User Image"
-          width={75}
-          height={75}
-          className="rounded-full border-slate-500 border-[1px] mt-4 object-cover"
+          width={100}
+          height={100}
+          className="rounded-full border-slate-500 border-[1px] my-4 object-cover"
         />
 
         {/* Title Input */}
@@ -25,6 +25,7 @@ export default function CreatePost() {
           id="title"
           name="title"
           className="p-2 border rounded-lg w-full mb-4"
+          placeholder="Add a title..."
           required
         />
 
@@ -36,6 +37,7 @@ export default function CreatePost() {
           id="content"
           name="content"
           className="py-2 px-2 border rounded-lg w-full mb-4"
+          placeholder="Create a post..."
           required
         ></textarea>
 
@@ -56,7 +58,7 @@ export default function CreatePost() {
 
         {/* Submit Button */}
         <button type="submit" className="bg-slate-500 text-white px-4 py-2 rounded-lg">
-          Submit
+          Create Post
         </button>
       </form>
     </div>

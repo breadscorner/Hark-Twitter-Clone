@@ -1,11 +1,10 @@
 'use client'
 
-import { Post } from '@/fake-db';
+import { Post } from '@/db/queries/postFeed';
 import Image from 'next/image';
 import PostIcons from '@/app/components/molecules/post-icons';
 import React, { useState } from 'react';
 import PostModal from '../molecules/post-modal';
-// import * as fakeDB from '@/fake-db';
 
 export default function PostFeed({ posts}: { posts: Post[]}) {
 
@@ -28,19 +27,19 @@ export default function PostFeed({ posts}: { posts: Post[]}) {
     <div className="text-center">
       <div>
         {posts.map((post) => (
-          <div className="post-container w-[90%] md:w-[75%] mx-auto my-4 px-4 border rounded-lg shadow-md" key={post.id}>
+          <div className="post-container w-[90%] md:w-[75%] mx-auto my-4 px-4 border rounded-lg shadow-lg" key={post.id}>
             <div className="cursor-pointer" onClick={() => openModal(post)}>
               <div className='flex items-center'>
                 <div className="relative w-[75px] h-[75px] rounded-full overflow-hidden mt-4 border-slate-500 border-[1px]">
                   <Image
-                    src={post.user?.avatar || "../placeholder.png"}
+                    src={post.user.profileImage || "../placeholder.png"}
                     alt="Post Image"
                     width={75}
                     height={75}
                     className="object-cover"
                   />
                 </div>
-                <h2 className='mt-4 ml-5 font-semibold text-[1em]'>{post.user?.username || "Anonymous User"}</h2>
+                <h2 className='mt-4 ml-5 font-semibold text-[1em]'>{post.user.username || "Anonymous User"}</h2>
               </div>
               <p className='mt-2 md:mt-4 text-left lg:ml-[100px] md:ml-[100px]'>{post.content}</p>
               <PostIcons />
@@ -58,10 +57,10 @@ export default function PostFeed({ posts}: { posts: Post[]}) {
                 />
               </div>
             ) : null}
-            <div className='mt-2  ml-[100px] md:mt-4 pb-4 text-left font-semibold flex items-center'>
+            {/* <div className='mt-2  ml-[100px] md:mt-4 pb-4 text-left font-semibold flex items-center'>
               <p className='flex items-center'>{post.likes} Likes</p>
               <p className='ml-4 flex items-center'>{post.user.followers} Followers</p>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

@@ -1,10 +1,9 @@
 import PostFeed from "../organisms/post-feed"
-import * as fakeDB from '@/fake-db';
+import { postsQuery } from "@/db/queries/postFeed"
 
-export default function HomeFeed() {
+export default async function HomeFeed() {
 
-  // Change to real db
-  const posts = fakeDB.getPosts();
+  const posts = await postsQuery.execute();
 
   return (
 

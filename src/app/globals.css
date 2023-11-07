@@ -2,19 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Define your color variables for light mode */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 220, 220, 220; 
-  --background-end-rgb: 240, 240, 240;
+  --foreground-rgb: #001d3d; /* Navy foreground for light mode */
+  --background-start-rgb: 255, 255, 255; /* White start */
+  --background-end-rgb: 220, 248, 255; /* Lightest blue end */
+  --icon-fill-color: #001d3d;
+}
+
+/* Switch to dark mode using the .dark class */
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0; /* Background start Black*/
+  --background-end-rgb: 0, 29, 61; /* Background end (#001d3d) */
+  --icon-fill-color: white;
+}
+
+svg {
+  fill: var(--icon-fill-color);
 }
 
 /* Switch to dark mode using media query */
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 0, 0, 0; /* Background start Black*/
+    --background-end-rgb: 0, 29, 61; /* Background end (#001d3d) */
+    --icon-fill-color: white;
+  }
+
+  svg {
+    fill: var(--icon-fill-color);
   }
 }
 
@@ -23,18 +40,18 @@ html, body {
   min-height: 100vh; /* Ensure body covers at least the viewport height */
 }
 
+/* Apply your color variables to your styles */
 body {
+  /* Background gradient with white at the top and lightest blue at the bottom */
   background: linear-gradient(
     to bottom,
     rgb(var(--background-start-rgb)),
-    rgb(17, 52, 0),
-    rgb(22, 66, 0),
-    rgb(17, 52, 0)
+    rgb(var(--background-end-rgb))
   );
   color: rgb(var(--foreground-rgb));
 }
 
-/* Make icons white */
-svg {
-  fill: white;
+/* Adjust text color based on the theme */
+p, h1, h2, h3, h4, h5, h6 {
+  color: rgb(var(--foreground-rgb));
 }

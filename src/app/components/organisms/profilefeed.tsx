@@ -12,11 +12,11 @@ export default async function ProfileFeed() {
   const users = await db.select().from(userTable)
     .where(eq(userTable.username, 'breadscorner'));
 
-    if(users.length === 0) {
-      return <div>404</div>
-    }
+  if (users.length === 0) {
+    return <div>404</div>
+  }
 
-    const user = users[0];
+  const user = users[0];
 
   // Get posts from single user
   const postsList = await db.select().from(postTable)
@@ -25,7 +25,7 @@ export default async function ProfileFeed() {
   // Get post type - How do I use this with in the postsList.
   const postType = await postsQuery.execute();
 
-  console.log(postsList);
+  // console.log(postsList, "This one");
 
   return (
     <div>
@@ -39,17 +39,19 @@ export default async function ProfileFeed() {
             {user.followers} Followers
           </p> */}
         </div>
-        
+
         {/* Profile Image */}
-        <div className="relative w-[125px] h-[125px] rounded-full overflow-hidden my-4 border-slate-500 border-[1px] justify-end self-start">
+        <div className="relative overflow-hidden rounded-full my-4 border-slate-500 border-[1px] justify-end self-start"
+          style={{ width: '125px', height: '125px' }}>
           <Image
             src={user.profileImage || "../placeholder.png"}
             alt="Profile Image"
-            width={125}
-            height={125}
-            className="object-cover"
+            layout="fill"
+            objectFit="cover"
+            className="rounded-full"
           />
         </div>
+
       </div>
 
       {/* Posts of breadscorner */}

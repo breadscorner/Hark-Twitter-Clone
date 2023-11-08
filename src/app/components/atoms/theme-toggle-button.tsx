@@ -7,13 +7,14 @@ import Moon from '../atoms/dark-mode-icon';
 
 export default function ThemeToggleButton() {
   const [isMounted, setIsMounted] = useState(false);
+  const { theme, toggleTheme } = useTheme(); 
+
+  // Effect to set mounted state
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  
-  if (!isMounted) return null;
 
-  const { theme, toggleTheme } = useTheme();
+  if (!isMounted) return null;
 
   return (
     <button onClick={toggleTheme}>

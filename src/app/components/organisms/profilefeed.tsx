@@ -12,20 +12,24 @@ export default async function ProfileFeed() {
   const users = await db.select().from(userTable)
     .where(eq(userTable.username, 'breadscorner'));
 
+    console.log(users, "This one");
+
   if (users.length === 0) {
     return <div>404</div>
   }
 
   const user = users[0];
 
+  console.log(user, "This one");
+
   // Get posts from single user
   const postsList = await db.select().from(postTable)
     .where(eq(postTable.userId, users[0].id));
 
-  // Get post type - How do I use this with in the postsList.
-  const postType = await postsQuery.execute();
+  console.log(postsList, "This one");
 
-  // console.log(postsList, "This one");
+  // Get post type - How do I use this with in the postsList.
+  // const postType = await postsQuery.execute();
 
   return (
     <div>
@@ -56,12 +60,12 @@ export default async function ProfileFeed() {
 
       {/* Posts of breadscorner */}
       <div className="w-[65%] mx-auto my-4 rounded-lg">
-        {postType.map((post) => (
+        {postsList.map((post) => (
           <div className="w-full mx-auto mt-4 p-4 border shadow-md rounded-lg" key={post.id}>
             <p>{post.content}</p>
 
             {/* Images */}
-            {post.media?.type === 'image' && (
+            {/* {post.media?. === 'image' && (
               <Image
                 src={post.media?.url}
                 alt="Post Image"
@@ -69,7 +73,7 @@ export default async function ProfileFeed() {
                 height={post.media.height}
                 className="mt-4 object-cover"
               />
-            )}
+            )} */}
 
             {/* Likes and Replies */}
             {/* <div className='flex mt-4 text-left font-semibold'>

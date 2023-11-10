@@ -1,18 +1,27 @@
 import Image from 'next/image';
 import { db, eq } from "@/db"
-import { posts as postTable } from '@/db/schema/posts';
 import { users as userTable } from '@/db/schema/users';
-import { postsQuery } from "@/db/queries/postFeed"
+import { posts as postTable } from '@/db/schema/posts';
+import { media as mediaTable } from '@/db/schema/media';
+import { Post } from '@/db/schema/posts'; // Import the Post type
+
+// Extend the Post type to include mediaDetails
+interface ExtendedPost extends Post {
+  mediaDetails?: {
+    id: number;
+    type: string;
+    url: string;
+    width: number;
+    height: number;
+  } | null;
+}
 
 export default async function ProfileFeed() {
-
   // Display only posts from a single user.
 
   // Get user info
   const users = await db.select().from(userTable)
     .where(eq(userTable.username, 'breadscorner'));
-
-    console.log(users, "This one");
 
   if (users.length === 0) {
     return <div>404</div>
@@ -20,16 +29,21 @@ export default async function ProfileFeed() {
 
   const user = users[0];
 
-  console.log(user, "This one");
-
   // Get posts from single user
   const postsList = await db.select().from(postTable)
-    .where(eq(postTable.userId, users[0].id));
+    .where(eq(postTable.userId, user.id));
 
-  console.log(postsList, "This one");
-
-  // Get post type - How do I use this with in the postsList.
-  // const postType = await postsQuery.execute();
+  // Fetch media for each post and add to postsList
+  const postsWithMedia: ExtendedPost[] = await Promise.all(postsList.map(async (post) => {
+    const extendedPost = { ...post } as ExtendedPost; // Cast to ExtendedPost
+    if (post.media) {
+      const media = await db.select().from(mediaTable)
+        .where(eq(mediaTable.id, post.media))
+        .execute();
+      extendedPost.mediaDetails = media.length > 0 ? media[0] : null;
+    }
+    return extendedPost;
+  }));
 
   return (
     <div>
@@ -39,9 +53,6 @@ export default async function ProfileFeed() {
           <h2 className="text-[1em] font-semibold">
             {user.firstName + ' ' + user.lastName}
           </h2>
-          {/* <p className="pt-8 pb-4 text-[1em] font-semibold">
-            {user.followers} Followers
-          </p> */}
         </div>
 
         {/* Profile Image */}
@@ -55,31 +66,30 @@ export default async function ProfileFeed() {
             className="rounded-full"
           />
         </div>
-
       </div>
 
       {/* Posts of breadscorner */}
       <div className="w-[65%] mx-auto my-4 rounded-lg">
-        {postsList.map((post) => (
+        {postsWithMedia.map((post) => (
           <div className="w-full mx-auto mt-4 p-4 border shadow-md rounded-lg" key={post.id}>
-            <p>{post.content}</p>
+            {/* Post Title */}
+            <h2 className="text-lg font-bold">{post.title}</h2>
 
-            {/* Images */}
-            {/* {post.media?. === 'image' && (
-              <Image
-                src={post.media?.url}
-                alt="Post Image"
-                width={post.media.width}
-                height={post.media.height}
-                className="mt-4 object-cover"
-              />
-            )} */}
+            {/* Post Content */}
+            <p className="mt-2">{post.content}</p>
 
-            {/* Likes and Replies */}
-            {/* <div className='flex mt-4 text-left font-semibold'>
-              <p>{post.likes} Likes</p>
-              <p className='ml-4'>{post.replies} Replies</p>
-            </div> */}
+            {/* Render Images if media is of type image */}
+            {post.mediaDetails?.type === 'image' && (
+              <div className="flex justify-center my-4">
+                <Image
+                  src={post.mediaDetails.url}
+                  alt="Post Image"
+                  width={250}
+                  height={250}
+                  className="object-cover"
+                />
+              </div>
+            )}
           </div>
         ))}
       </div>

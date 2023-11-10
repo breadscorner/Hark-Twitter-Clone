@@ -43,6 +43,13 @@
       "when": 1695615220109,
       "tag": "0005_clean_inertia",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1699587706497,
+      "tag": "0006_equal_lightspeed",
+      "breakpoints": true
     }
   ]
 }

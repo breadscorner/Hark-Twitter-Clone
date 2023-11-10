@@ -30,30 +30,30 @@ export default function PostFeed({ posts}: { posts: Post[]}) {
           <div className="post-container w-[90%] md:w-[75%] mx-auto my-4 px-4 border rounded-lg shadow-lg" key={post.id}>
             <div className="cursor-pointer" onClick={() => openModal(post)}>
               <div className='flex items-center'>
-                <div className="relative w-[75px] h-[75px] rounded-full overflow-hidden mt-4 border-slate-500 border-[1px]">
+                <div className="relative w-[100px] h-[100px] rounded-full object-cover overflow-hidden mt-4 border-slate-500 border-[1px]"
+                style={{ width: '125px', height: '125px' }}>
                   <Image
                     src={post.user.profileImage || "../placeholder.png"}
                     alt="Post Image"
-                    width={75}
-                    height={75}
+                    layout="fill"
                     className="object-cover"
                   />
                 </div>
-                <h2 className='mt-4 ml-5 font-semibold text-[1em]'>{post.user.username || "Anonymous User"}</h2>
+                <h2 className='mt-4 ml-5 font-semibold text-[2em]'>{post.user.username || "Anonymous User"}</h2>
               </div>
               <p className='mt-2 md:mt-4 text-left lg:ml-[100px] md:ml-[100px]'>{post.content}</p>
               <PostIcons />
             </div>
 
-            {/* Likes & followers */}
+            {/* Post Media */}
             {post.media?.url ? (
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center mb-4">
                 <Image
                   src={post.media?.url || "../placeholder.png"}
                   alt="Post Image"
-                  width={post.media?.width || 75}
-                  height={post.media?.height || 75}
-                  className="border-slate-500 border-[1px] mt-2 md:mt-4"
+                  width={post.media?.width || 125}
+                  height={post.media?.height || 125}
+                  className="border-slate-500 border-[1px] mt-2 md:my-4"
                 />
               </div>
             ) : null}

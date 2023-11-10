@@ -7,7 +7,6 @@ import { postsQuery } from '@/db/queries/postFeed';
 export default async function ProfileFeed() {
   
   // Display only posts from a single user.
-
   // Get user info
   const users = await db.select().from(userTable)
     .where(eq(userTable.username, 'breadscorner'));
@@ -60,8 +59,8 @@ export default async function ProfileFeed() {
                 <Image
                   src={post.media.url}
                   alt="Post Image"
-                  width={250}
-                  height={250}
+                  width={post.media.width || 250}
+                  height={post.media.height || 250}
                   className="object-cover"
                 />
               </div>

@@ -25,10 +25,15 @@ export default function PostFeed({ posts }: { posts: Post[]; }) {
   };
 
   return (
+
     <div className="text-center">
       <div>
+
+        {/* Map Posts */}
         {posts.map((post) => (
           <div className="post-container w-[90%] md:w-[75%] mx-auto my-4 px-4 border rounded-lg shadow-lg" key={post.id}>
+
+            {/* Post Modal Action */}
             <div className="cursor-pointer" onClick={() => openModal(post)}>
               <div className='flex items-center'>
                 <div className="relative w-[100px] h-[100px] rounded-full object-cover overflow-hidden mt-4 border-slate-500 border-[1px]"
@@ -39,31 +44,39 @@ export default function PostFeed({ posts }: { posts: Post[]; }) {
                     layout="fill"
                     className="object-cover" />
                 </div>
-                <h2 className='mt-4 ml-5 font-semibold text-[2em]'>{post.user.username || "Anonymous User"}</h2>
+
+                {/* Post Header */}
+                <div className='flex flex-col text-left ml-8'>
+                  <h2 className='mt-4 font-semibold text-[2em]'>{post.title}</h2>
+                  <p className='mt-2 italic text-[1em]'>{post.user.username}</p>
+                </div>
               </div>
-              <p className='mt-2 md:mt-4 text-left lg:ml-[100px] md:ml-[100px]'>{post.content}</p>
-              <PostIcons />
+
+              {/* Post Content */}
+              <div className='border-t md:ml-[165px] md:mr-8'>
+                <p className='mt-2 md:mt-4 text-left'>{post.content}</p>
+              </div>
             </div>
 
             {/* Post Media */}
             {post.media?.url ? (
-              <div className="flex justify-center items-center mb-4">
+              <div className="flex justify-center items-center">
                 <Image
                   src={post.media?.url || "../placeholder.png"}
                   alt="Post Image"
                   width={post.media?.width || 125}
                   height={post.media?.height || 125}
-                  className="border-slate-500 border-[1px] mt-2 md:my-4" />
+                  className="border-slate-500 border-[1px] mt-2 md:mt-4" />
               </div>
             ) : null}
-            {/* <div className='mt-2  ml-[100px] md:mt-4 pb-4 text-left font-semibold flex items-center'>
-                      <p className='flex items-center'>{post.likes} Likes</p>
-                      <p className='ml-4 flex items-center'>{post.user.followers} Followers</p>
-                    </div> */}
+
+            {/* Post Icons */}
+            <div className="p-4">
+              <PostIcons />
+            </div>
           </div>
         ))}
       </div>
-
       <PostModal post={selectedPost} isModalOpen={isModalOpen} closeModal={closeModal} />
     </div>
   );

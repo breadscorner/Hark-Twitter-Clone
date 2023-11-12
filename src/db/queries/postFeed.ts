@@ -1,4 +1,4 @@
-import { db, eq } from "@/db"
+import { db, eq, desc } from "@/db"
 import { posts as postTable } from '@/db/schema/posts';
 import { users as userTable } from '@/db/schema/users';
 import { media as mediaTable } from '@/db/schema/media';
@@ -25,11 +25,16 @@ export const postsQuery = db
   .from(postTable)
   .innerJoin(userTable, eq(postTable.userId, userTable.id))
   .leftJoin(mediaTable, eq(postTable.media, mediaTable.id))
+
+  // All posts
+  export const homePostsQuery = postsQuery 
+  .orderBy(desc(postTable.createdAt))
   .prepare("selectAllPosts")
 
-  // Create variable for only logged in user || wrong syntax
-  // ---------------------------
-  // const profilePostQuery = db 
-  // .where(eq(postTable.userId, 1))
+  // single user posts
+  export const userPostsQuery = postsQuery
+  .where(eq(postTable.userId, 1))
+  .orderBy(desc(postTable.createdAt))
+  .prepare("selectUserPosts")
 
   export type Post = Awaited<ReturnType<typeof postsQuery.execute>>[0];

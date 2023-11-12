@@ -50,6 +50,13 @@
       "when": 1699587706497,
       "tag": "0006_equal_lightspeed",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1699774511996,
+      "tag": "0007_vengeful_vivisector",
+      "breakpoints": true
     }
   ]
 }

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { db, eq } from "@/db"
 import { users as userTable } from '@/db/schema/users';
-import { postsQuery } from '@/db/queries/postFeed';
+import { userPostsQuery } from '@/db/queries/postFeed';
 
 
 export default async function ProfileFeed() {
@@ -17,7 +17,7 @@ export default async function ProfileFeed() {
 
   const user = users[0];
 
-  const postsWithMedia = await postsQuery.execute();
+  const postsWithMedia = await userPostsQuery.execute();
 
   return (
     <div>

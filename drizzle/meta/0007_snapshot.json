@@ -1,9 +1,56 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "f8e54974-6f68-493f-9447-22fe429bcf0a",
+  "id": "f6a87291-7548-4cde-a538-bad776e158eb",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
+    "media": {
+      "name": "media",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "media_type",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "url": {
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "width": {
+          "name": "width",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "height": {
+          "name": "height",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "posts": {
       "name": "posts",
       "schema": "",
@@ -28,7 +75,7 @@
         },
         "media": {
           "name": "media",
-          "type": "varchar(150)",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
@@ -47,7 +94,34 @@
         }
       },
       "indexes": {},
-      "foreignKeys": {},
+      "foreignKeys": {
+        "posts_media_media_id_fk": {
+          "name": "posts_media_media_id_fk",
+          "tableFrom": "posts",
+          "tableTo": "media",
+          "columnsFrom": [
+            "media"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "posts_user_id_users_id_fk": {
+          "name": "posts_user_id_users_id_fk",
+          "tableFrom": "posts",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
@@ -84,6 +158,12 @@
           "type": "text",
           "primaryKey": false,
           "notNull": false
+        },
+        "profile_image": {
+          "name": "profile_image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
@@ -100,7 +180,15 @@
       }
     }
   },
-  "enums": {},
+  "enums": {
+    "media_type": {
+      "name": "media_type",
+      "values": {
+        "image": "image",
+        "video": "video"
+      }
+    }
+  },
   "schemas": {},
   "_meta": {
     "schemas": {},

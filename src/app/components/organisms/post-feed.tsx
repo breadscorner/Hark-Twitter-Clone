@@ -37,6 +37,7 @@ export default function PostFeed({ posts }: { posts: Post[]; }) {
               <div className='flex items-center'>
                 <div className="relative w-[100px] h-[100px] rounded-full object-cover overflow-hidden mt-4 border-slate-500 border-[1px]"
                   style={{ width: '125px', height: '125px' }}>
+                    {/* Can't use ProfileImage Component due to client side page */}
                   <Image
                     src={post.user.profileImage || "../placeholder.png"}
                     alt="Post Image"

@@ -2,10 +2,10 @@ import Image from 'next/image';
 import { db, eq } from "@/db"
 import { users as userTable } from '@/db/schema/users';
 import { userPostsQuery } from '@/db/queries/postFeed';
-
+import ProfileImage from '@/app/components/atoms/profile-image';
 
 export default async function ProfileFeed() {
-  
+
   // Display only posts from a single user.
   // Get user info
   const users = await db.select().from(userTable)
@@ -30,15 +30,8 @@ export default async function ProfileFeed() {
         </div>
 
         {/* Profile Image */}
-        <div className="relative overflow-hidden rounded-full my-4 border-slate-500 border-[1px] justify-end self-start"
-          style={{ width: '125px', height: '125px' }}>
-          <Image
-            src={user.profileImage || "../placeholder.png"}
-            alt="Profile Image"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-full"
-          />
+        <div className="relative overflow-hidden rounded-full border-slate-500 justify-end self-start">
+          <ProfileImage />
         </div>
       </div>
 
@@ -46,7 +39,7 @@ export default async function ProfileFeed() {
       <div className="w-[65%] mx-auto my-4 rounded-lg">
         {postsWithMedia.map((post) => (
           <div className="w-full mx-auto mt-4 p-4 border shadow-md rounded-lg" key={post.id}>
-            
+
             {/* Post Title */}
             <h2 className="text-lg font-bold">{post.title}</h2>
 

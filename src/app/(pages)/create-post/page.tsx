@@ -2,6 +2,7 @@ import Image from "next/image";
 import { db, eq } from "@/db";
 import { posts as postTable } from "@/db/schema/posts";
 import { users as userTable } from "@/db/schema/users";
+import ProfileImage from "@/app/components/atoms/profile-image";
 
 export default async function CreatePost() {
 
@@ -21,16 +22,7 @@ export default async function CreatePost() {
   return (
     <div className="w-[65%] mx-auto mb-4 p-4 rounded-lg border shadow-md flex justify-center items-center">
       <form action="/create-post" method="POST" className="flex flex-col w-[75%] items-center">
-        <div className="relative overflow-hidden rounded-full border-slate-500 border-[1px] my-4"
-          style={{ width: '150px', height: '150px' }}>
-          <Image
-            src={user.profileImage || "/placeholder.png"}
-            alt="User Image"
-            layout="fill"
-            objectFit="cover"
-            className="rounded-full"
-          />
-        </div>
+      <ProfileImage />
 
 
 

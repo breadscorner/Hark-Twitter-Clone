@@ -3,12 +3,12 @@
 export default function SignoutButton({signOut} : {signOut: () => void}) {
   return (
     <button
-      className="text-neutral-500 hover:text-neutral-700"
+      className="text-white hover:text-neutral-700 hover:bg-slate-200 py-2 px-4 border rounded-lg"
       onClick={() => {
         signOut()
       }}
     >
-      Sign out
+      Sign Out
     </button>
   )
 }

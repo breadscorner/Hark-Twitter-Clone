@@ -1,4 +1,4 @@
-import { pgTable, serial, varchar, integer, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, serial, varchar, integer, text, timestamp } from "drizzle-orm/pg-core";
 import { media } from "./media";
 import { users } from "./users";
 
@@ -10,6 +10,6 @@ export const posts = pgTable("posts", {
     title: varchar('title', { length: 30 }).notNull(),
     content: varchar('content', { length: 250 }).notNull(),
     media: integer('media').references(() => media.id),
-    userId: integer('user_id').references(() => users.id).notNull(),
+    userId: text('user_id').references(() => users.id).notNull(),
     createdAt: timestamp('created_at').notNull().defaultNow(),
 });

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { db, eq } from "@/db";
 import { posts as postTable } from "@/db/schema/posts";
 import { users as userTable } from "@/db/schema/users";
@@ -8,7 +7,6 @@ export default async function CreatePost() {
 
   // Get User Info
   const users = await db.select().from(userTable)
-    .where(eq(userTable.username, 'breadscorner'));
 
   if (users.length === 0) {
     return <div>404</div>
@@ -19,12 +17,11 @@ export default async function CreatePost() {
   // Get Posts From Single User
   const postsList = await db.select().from(postTable)
     .where(eq(postTable.userId, users[0].id));
+    
   return (
     <div className="w-[65%] mx-auto mb-4 p-4 rounded-lg border shadow-md flex justify-center items-center">
       <form action="/create-post" method="POST" className="flex flex-col w-[75%] items-center">
       <ProfileImage />
-
-
 
         {/* Title Input */}
         <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">

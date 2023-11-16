@@ -11,8 +11,8 @@ export const postsQuery = db
     createdAt: postTable.createdAt,
     user: {
       id: userTable.id,
-      username: userTable.username,
-      profileImage: userTable.profileImage,
+      username: userTable.name,
+      profileImage: userTable.image,
     },
     media: {
       id: mediaTable.id,
@@ -33,7 +33,7 @@ export const postsQuery = db
 
   // single user posts
   export const userPostsQuery = postsQuery
-  .where(eq(postTable.userId, 1))
+  .where(eq(postTable.userId, "1"))
   .orderBy(desc(postTable.createdAt))
   .prepare("selectUserPosts")
 

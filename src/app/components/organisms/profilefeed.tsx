@@ -14,19 +14,6 @@ export default async function ProfileFeed() {
     redirect('/api/auth/signin?callbackUrl=/profile');
   }
 
-  // Display only posts from a single user.
-  // Get user info
-  // const users = await db.select().from(userTable)
-  //   .where(eq(userTable., 'breadscorner'));
-
-  // if (users.length === 0) {
-  //   return <div>404</div>
-  // }
-
-  // const user = users[0];
-
-  const postsWithMedia = await userPostsQuery.execute();
-
   return (
 
     <>

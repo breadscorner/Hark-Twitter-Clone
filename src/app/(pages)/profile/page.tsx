@@ -1,15 +1,12 @@
 // DB imports
-import { db, eq, sql } from "@/db"
-import { users as usersTable } from "@/db/schema/users"
 import { userPostsQuery } from "@/db/queries/postFeed"
 
 // Components
 import Profile from "./profile"
 import ProfileFeed from '../../components/organisms/profilefeed';
-import SignoutButton from "./sign-out-btn"
 
 // Utils
-import { auth, signOut } from "@/utils/auth"
+import { auth } from "@/utils/auth"
 import { redirect } from "next/navigation"
 
 export default async function ProfilePage() {
@@ -26,20 +23,16 @@ export default async function ProfilePage() {
       {/* <ProfileFeed  /> */}
       <Profile user={session.user} />
 
-        <SignoutButton
-          signOut={async () => {
-            "use server"
-            await signOut({redirectTo: "/"})
-          }}
-        />
-      <div className="mt-7">
-        <div className="w-full border-b mb-5">
-          <div className="mb-2">Posts</div>
-        </div>
-        <div className="flex flex-col divide-y">
+      <div  className="w-[90%] md:w-[75%] mx-auto my-4 px-4 border rounded-lg shadow-lg">
+        <div className="m-4 border-b mb-5">
+          <div className="font-[1.5em]">Posts</div>
+        <div>
           {posts?.map((post) => (
+            <div>
             <ProfileFeed />
+            </div>
           ))}
+        </div>
         </div>
       </div>
     </>

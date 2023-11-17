@@ -31,7 +31,7 @@ export const postsQuery = db
   .orderBy(desc(postTable.createdAt))
   .prepare("selectAllPosts")
 
-  // single user posts
+  // Single user posts
   export const userPostsQuery = postsQuery
   .where(eq(postTable.userId, sql.placeholder("userId")))
   .orderBy(desc(postTable.createdAt))

@@ -50,6 +50,9 @@ dependencies:
   next-auth:
     specifier: 5.0.0-beta.3
     version: 5.0.0-beta.3(next@14.0.2)(react@18.2.0)
+  next-safe-action:
+    specifier: ^5.0.3
+    version: 5.0.3(next@14.0.2)(react@18.2.0)(zod@3.21.4)
   next-themes:
     specifier: ^0.2.1
     version: 0.2.1(next@14.0.2)(react-dom@18.2.0)(react@18.2.0)
@@ -3032,6 +3035,19 @@ packages:
       react: 18.2.0
     dev: false
 
+  /next-safe-action@5.0.3(next@14.0.2)(react@18.2.0)(zod@3.21.4):
+    resolution: {integrity: sha512-97Tvu4BDA2jCSexDSgUW2H/zXizDKnudukTbqXkGXDHhpe6P3rkaUpHSBjkHSxID8ejKolPcnHBy8N+dJ8gI8g==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      next: '>= 14.0.0'
+      react: '>= 18.2.0'
+      zod: '>= 3.0.0'
+    dependencies:
+      next: 14.0.2(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      zod: 3.21.4
+    dev: false
+
   /next-themes@0.2.1(next@14.0.2)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
     peerDependencies:
@@ -4420,4 +4436,3 @@ packages:
 
   /zod@3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
-    dev: true

@@ -9,17 +9,23 @@ interface PostModalProps {
 }
 
 export default function PostModal({ post, isModalOpen, closeModal }: PostModalProps) {
-  
+
+  const handleBackdropClick = (event: React.MouseEvent) => {
+    if (event.target === event.currentTarget) {
+      closeModal();
+    }
+  };
+
   return isModalOpen && post !== null && (
-    <div className="flex fixed top-0 justify-center md:h-screen w-full mx-auto my-4 px-4 backdrop-blur-xl cursor-pointer" onClick={closeModal}>
-      <div className="w-full m-auto lg:w-[85%] lg:max-h-[70%] bg-white bg-opacity-10 overflow-y-scroll px-4 border rounded-lg shadow-md" key={post.id}>
+    <div className="flex fixed top-0 justify-center md:h-screen w-full mx-auto my-4 px-4 backdrop-blur-xl cursor-pointer" onClick={handleBackdropClick}>
+      <div className="w-full m-auto lg:w-[85%] lg:max-h-[70%] bg-white bg-opacity-10 overflow-y-scroll px-4 border rounded-lg shadow-md" key={post.id} onClick={(e) => e.stopPropagation()}>
         <div>
           <div className='flex items-center'>
             <div className="relative w-[75px] h-[75px] rounded-full overflow-hidden mt-4 border-slate-500 border-[1px]"
             style={{ width: '175px', height: '175px' }}>
               <Image
                 src={post.user.profileImage || "../placeholder.png"}
-                alt="Post Image"
+                alt="User Image"
                 layout="fill"
                 className="object-cover"
               />

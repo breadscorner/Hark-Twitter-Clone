@@ -8,8 +8,8 @@ import PostModal from '../molecules/post-modal';
 
 export default function PostFeed({ posts }: { posts: Post[]; }) {
 
-  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
 
   const openModal = (post: Post | null) => {
     if (post) {

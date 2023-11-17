@@ -15,10 +15,7 @@ export default async function Profile({
   return (
     <div className="flex justify-center">
       <div className="post-container w-[90%] md:w-[75%] mx-auto my-4 py-4 border rounded-lg shadow-lg">
-
         <div className="flex items-center">
-
-          {/* Profile Image */}
           <Link href={user.image || "https://www.gravatar.com/avatar/?d=mp"}>
             <div className="relative w-[100px] h-[100px] rounded-full object-cover overflow-hidden ml-8 border-slate-500 border-[1px]">
               <Image
@@ -47,7 +44,6 @@ export default async function Profile({
           </div>
 
         </div>
-
       </div>
     </div>
 

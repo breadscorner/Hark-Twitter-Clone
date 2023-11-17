@@ -39,27 +39,7 @@ export default async function ProfileFeed() {
     //   {/* Posts of breadscorner */}
     //   <div className="w-[65%] mx-auto my-4 rounded-lg">
     //     {postsWithMedia.map((post) => (
-    //       <div className="w-full mx-auto mt-4 p-4 border shadow-md rounded-lg" key={post.id}>
-
-    //         {/* Post Title */}
-    //         <h2 className="text-lg font-bold">{post.title}</h2>
-
-    //         {/* Post Content */}
-    //         <p className="mt-2">{post.content}</p>
-
-    //         {/* Render Images if media is of type image */}
-    //         {post.media?.type === 'image' && (
-    //           <div className="flex justify-center my-4">
-    //             <Image
-    //               src={post.media.url}
-    //               alt="Post Image"
-    //               width={post.media.width || 250}
-    //               height={post.media.height || 250}
-    //               className="object-cover"
-    //             />
-    //           </div>
-    //         )}
-    //       </div>
+  
     //     ))}
     //   </div>
     // </div>

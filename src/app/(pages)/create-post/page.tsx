@@ -1,4 +1,4 @@
-import ProfileImage from "@/app/components/atoms/profile-image";
+import ProfileImage from "@/app/components/atoms/posts/profile-image";
 import CreatePost from "./create-post";
 import { auth } from "@/utils/auth"
 import { redirect } from "next/navigation";

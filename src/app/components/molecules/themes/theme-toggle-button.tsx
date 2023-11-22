@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '../molecules/theme-provider'; 
-import Sun from '../atoms/light-mode-icon'; 
-import Moon from '../atoms/dark-mode-icon'; 
+import { useTheme } from '../theme-provider'; 
+import Sun from '../../atoms/themes/light-mode-icon'; 
+import Moon from '../../atoms/themes/dark-mode-icon'; 
 
 export default function ThemeToggleButton() {
   const [isMounted, setIsMounted] = useState(false);

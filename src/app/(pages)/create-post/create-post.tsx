@@ -9,6 +9,7 @@ export default function Create({profileImage}: {profileImage: React.ReactNode}) 
   const [title, setTitle] = useState<string | undefined>();
   const [content, setContent] = useState<string | undefined>();
   const [image, setImage] = useState<File | undefined>();
+  
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if(!title || !content){
@@ -18,9 +19,8 @@ export default function Create({profileImage}: {profileImage: React.ReactNode}) 
       console.log(res)
       console.log("Form submitted!")
     })   
-    
     // Clear the form
-    // event.currentTarget.reset();
+    event.currentTarget.reset();
   }
 
   return (

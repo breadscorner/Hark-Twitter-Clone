@@ -1,7 +1,7 @@
-import LikeIcon from '../atoms/like-icon';
-import CommentIcon from '../atoms/comment-icon';
-import RTIcon from '../atoms/rt-icon';
-import ShareIcon from '../atoms/share-icon';
+import LikeIcon from '../atoms/posts/like-icon';
+import CommentIcon from '../atoms/posts/comment-icon';
+import RTIcon from '../atoms/posts/rt-icon';
+import ShareIcon from '../atoms/posts/share-icon';
 
 export default function PostIcons() {
 

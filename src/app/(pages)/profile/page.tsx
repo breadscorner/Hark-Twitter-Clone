@@ -40,24 +40,35 @@ export default async function ProfilePage() {
 
       <div className="w-[90%] md:w-[75%] mx-auto my-4">
         <div>
-          <div className="font-[1.5em]">Posts</div>
+          <div className="flex justify-center text-3xl font-semibold pb-4">{session.user.name}'s Posts</div>
           {posts?.map((post) => (
-            <div 
-              className="w-full mx-auto mt-4 p-4 border shadow-md rounded-lg cursor-pointer"
-              key={post.id}
-              // key={post.id}
-              // onClick={() => openModal(selectedPost)}
-            >
-              {/* Post Title */}
-              <h2 className="text-lg font-bold">{post.title}</h2>
+            <div className="post-container w-[90%] md:w-full mx-auto my-4 px-4 border rounded-lg shadow-lg" key={post.id}>
+              <div className='flex items-center'>
+                <div className="relative w-[100px] h-[100px] rounded-full object-cover overflow-hidden mt-4 border-slate-500 border-[1px]"
+                  style={{ width: '125px', height: '125px' }}>
+                  {/* Can't use ProfileImage Component due to client side page */}
+                  <Image
+                    src={post.user.profileImage || "../placeholder.png"}
+                    alt="Post Image"
+                    layout="fill"
+                    className="object-cover" />
+                </div>
+                {/* Post Header */}
+                <div className='flex flex-col text-left ml-8'>
+                  <h2 className='mt-4 font-semibold text-[2em]'>{post.title}</h2>
+                  <p className='mt-2 italic text-[1em]'>{post.user.username}</p>
+                </div>
+              </div>
 
               {/* Post Content */}
-              <p className="mt-2">{post.content}</p>
+              <div className='border-t md:ml-[165px] md:mr-8'>
+                <p className='mt-2 md:mt-4 text-left'>{post.content}</p>
+              </div>
 
               {/* Render Images if media is of type image */}
               {post.media?.type === 'image' && (
                 <div className="flex justify-center my-4"
-                key={post.id}>
+                  key={post.id}>
                   <Image
                     src={post.media.url}
                     alt="Post Image"
@@ -70,8 +81,8 @@ export default async function ProfilePage() {
             </div>
           ))}
         </div>
+        {/* <PostModal post={selectedPost} isModalOpen={modalIsOpen} closeModal={closeModal} /> */}
       </div>
-      {/* <PostModal post={selectedPost} isModalOpen={modalIsOpen} closeModal={closeModal} /> */}
     </div>
   )
 }

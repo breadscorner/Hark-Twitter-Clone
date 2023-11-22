@@ -17,7 +17,7 @@ export default async function ProfilePage() {
   return (
     <div>
       <div className="w-[90%] md:w-[75%] mx-auto my-4">
-        <div className="font-[1.5em]">Liked Posts</div>
+        <div className="flex justify-center text-3xl font-semibold pb-4">Liked Posts</div>
         {posts?.map((post) => (
           <div className="post-container w-[90%] md:w-full mx-auto my-4 px-4 border rounded-lg shadow-lg" key={post.id}>
             <div className="flex items-center">

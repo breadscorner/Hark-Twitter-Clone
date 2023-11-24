@@ -1,7 +1,6 @@
 import { pgTable, serial, varchar, integer, text, timestamp } from "drizzle-orm/pg-core";
 import { media } from "./media";
 import { users } from "./users";
-import { likes } from "./likes";
 
 export type Post = typeof posts.$inferSelect;
 export type NewPost = typeof posts.$inferInsert;

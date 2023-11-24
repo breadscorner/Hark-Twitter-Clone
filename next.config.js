@@ -2,13 +2,14 @@
 
 module.exports = {
   images: {
-    domains: [
-      'www.gravatar.com', 
-      'picsum.photos', 
-      'images.clerk.dev', 
-      'cdn.pixabay.com', 
-      'images.pexels.com',
-      'avatars.githubusercontent.com'  // Added new domain
+    remotePatterns: [
+      { hostname: 'www.gravatar.com' },
+      { hostname: 'picsum.photos' },
+      { hostname: 'images.clerk.dev' },
+      { hostname: 'cdn.pixabay.com' },
+      { hostname: 'images.pexels.com' },
+      { hostname: 'avatars.githubusercontent.com' },
+      { hostname: 'hark-clone-local-bucket.s3.ca-central-1.amazonaws.com' },
     ],
   },
   reactStrictMode: true,

@@ -4,10 +4,12 @@ import { Post } from '@/db/queries/postFeed';
 import Image from 'next/image';
 import PostIcons from '@/app/components/molecules/post-icons';
 import React, { useState } from 'react';
-import PostModal from '../molecules/post-modal';
+import PostModal from '../components/molecules/post-modal';
+import { deletePost } from './actions';
 
 export default function PostFeed({ posts }: { posts: Post[]; }) {
 
+  const [currentPosts, setPosts] = useState(posts);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
 
@@ -21,6 +23,21 @@ export default function PostFeed({ posts }: { posts: Post[]; }) {
   const closeModal = () => {
     setSelectedPost(null);
     setIsModalOpen(false);
+  };
+
+  const handleDelete = async (id: number) => {
+    // Call the deletePost function from actions.ts
+    try {
+      // Await the promise to resolve and capture any value it might return
+      await deletePost(id);
+
+      // If the promise resolves without error, filter out the deleted post
+      setPosts(currentPosts.filter(post => post.id !== id));
+      console.log(`Post ${id} deleted successfully.`);
+    } catch (error) {
+      // If there's an error in the deletion process, log it to the console
+      console.error('Error deleting post:', error);
+    }
   };
 
   return (
@@ -72,7 +89,7 @@ export default function PostFeed({ posts }: { posts: Post[]; }) {
 
             {/* Post Icons */}
             <div className="p-4">
-              <PostIcons />
+              <PostIcons onDelete={() => handleDelete(post.id)} />
             </div>
           </div>
         ))}

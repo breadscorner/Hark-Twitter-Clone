@@ -4,7 +4,7 @@
 import { redirect } from "next/navigation"
 import { revalidatePath } from "next/cache"
 
-import { db } from "@/db"
+import { db, and, eq } from "@/db"
 import { posts as postsTable } from "@/db/schema/posts"
 import { media } from "@/db/schema/media"
 
@@ -34,7 +34,7 @@ const acceptedTypes = [
 
 const maxFileSize = 1024 * 1024 * 10 // 10MB
 
-// Gets the signed url for the image upload
+// Get signed url for uploading media
 export async function getCustomSignedUrl(type: string, size: number, checkSum: string) {
   const session = await auth()
 
@@ -62,13 +62,11 @@ export async function getCustomSignedUrl(type: string, size: number, checkSum: s
   })
 
   const signedUrl = await getSignedUrl(
-    s3, 
+    s3,
     command,
     { expiresIn: 60 })
 
-    let mediaId;
-  console.log("Signed URL:", signedUrl);
-  console.log(mediaId)
+  let mediaId;
 
   try {
     const mediaResult = await db.insert(media).values({
@@ -80,16 +78,16 @@ export async function getCustomSignedUrl(type: string, size: number, checkSum: s
     }).returning({ id: media.id }).then(res => res[0]);
 
     console.log("Media Result:", mediaResult);
-    mediaId = mediaResult.id; // Assign the id to mediaId
+    mediaId = mediaResult.id;
   } catch (error) {
     console.error("Error in media insertion:", error);
     return { failure: "Error during media insertion" };
   }
 
-  return { success: { url: signedUrl, mediaId: mediaId } }; // Use mediaId here
+  return { success: { url: signedUrl, mediaId: mediaId } };
 }
 
-// Creates the post without images
+// Create post
 export async function createPost(title: string, content: string, mediaId?: number) {
   const session = await auth()
 
@@ -109,8 +107,8 @@ export async function createPost(title: string, content: string, mediaId?: numbe
     const mediaItem = await db
       .select()
       .from(media)
-      .where(media.id.eq(mediaId), media.userId.eq(session.user.id))
-      .execute();
+      .where(and(eq(media.id, mediaId), eq(media.userId, session.user.id)))
+      .then(res => res[0]);
 
     console.log("Media Item:", mediaItem);
     if (!mediaItem) {
@@ -126,12 +124,12 @@ export async function createPost(title: string, content: string, mediaId?: numbe
         createdAt: new Date(),
       }).returning().execute();
 
-      revalidatePath("/")
-      redirect(`/`)
     } catch (error) {
       console.error(error)
       return { error: "Something went wrong" }
     }
+    revalidatePath("/")
+    redirect(`/`)
   }
   else {
     try {
@@ -142,11 +140,11 @@ export async function createPost(title: string, content: string, mediaId?: numbe
         createdAt: new Date(),
       }).execute()
 
-      revalidatePath("/")
-      redirect(`/`)
     } catch (error) {
       console.error(error)
       return { error: "Something went wrong" }
     }
+    revalidatePath("/")
+    redirect(`/`)
   }
 }

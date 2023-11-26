@@ -1,4 +1,4 @@
-import PostFeed from '../organisms/post-feed';
+import PostFeed from './post-feed';
 import { homePostsQuery} from "@/db/queries/postFeed"
 
 export default async function HomeFeed() {

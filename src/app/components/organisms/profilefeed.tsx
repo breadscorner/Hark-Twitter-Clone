@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { db, eq } from "@/db"
 import { users as userTable } from '@/db/schema/users';
 import { userPostsQuery } from '@/db/queries/postFeed';
-import ProfileImage from '@/app/components/atoms/posts/profile-image';
+import ProfileImage from '@/app/components/molecules/profile-image';
 import { auth } from '@/utils/auth'
 import { redirect } from 'next/navigation';
 

@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { createPost } from './action';
 import { getCustomSignedUrl } from './action';
-import { Redirect } from 'next';
 
 export default function Create({ profileImage }: { profileImage: React.ReactNode }) {
 
@@ -12,6 +11,7 @@ export default function Create({ profileImage }: { profileImage: React.ReactNode
   const [content, setContent] = useState<string | undefined>();
   const [file, setFile] = useState<File | undefined>(undefined);
   const [fileUrl, setFileUrl] = useState<string | undefined>(undefined);
+  
   const [loading, setLoading] = useState(false)
   const [statusMessage, setStatusMessage] = useState("")
 
@@ -31,8 +31,8 @@ export default function Create({ profileImage }: { profileImage: React.ReactNode
     setStatusMessage("Creating...")
     setLoading(true)
 
-    try {
     let mediaId: number | undefined = undefined
+    try {
       if (file) {
         setStatusMessage("Uploading image...")
         const checkSum = await computeSHA256(file)
@@ -44,7 +44,6 @@ export default function Create({ profileImage }: { profileImage: React.ReactNode
         }
         const { url } = signedUrlResult.success;
         mediaId = signedUrlResult.success.mediaId
-
         await fetch(url, {
           method: 'PUT',
           body: file,
@@ -65,15 +64,14 @@ export default function Create({ profileImage }: { profileImage: React.ReactNode
     if (!title || !content) {
       return
     }
-    await createPost(title, content).then((res) => {
+    
+    await createPost(title, content, mediaId).then((res) => {
       console.log("Form submitted!")
     })
 
     setStatusMessage("Created.")
     setLoading(false)
 
-    // Clear the form
-    event.currentTarget.reset();
   }
 
   const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {

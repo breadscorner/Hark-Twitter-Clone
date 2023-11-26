@@ -4,7 +4,6 @@ import NavSearchIcon from '../atoms/navbar/nav-search-icon';
 import NavAPIcon from '../atoms/navbar/nav-ap-icon';
 import NavLikeIcon from '../atoms/navbar/nav-like-icon';
 import NavProIcon from '../atoms/navbar/nav-pro-icon';
-// import ThemeToggleButton from '../atoms/theme-toggle-button';
 
 export default function NavBar() {
 

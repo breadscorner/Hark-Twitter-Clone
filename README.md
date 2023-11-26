@@ -8,37 +8,41 @@
 
 ### Home Feed
 
-- Engage with posts by liking and commenting on them.
-- Stay updated with the latest tweets from your network.
+-Engagement: Like and soon comment on posts to interact with posts.
+-Saving Posts: Like posts and view them on your liked posts page.
 
-### Posts Page
+### Liked Posts Page
 
-- Access a dedicated page to view all your posts.
-- Keep track of your post history in one place.
+- Access a dedicated page to view all your liked posts.
+- They are all organized ascending from the post date.
 
-### Add Post(Not-functional)
+### Add Post
 
-- Compose and share tweets with your followers.
+- Compose and share posts.
 - Include text and media in your posts.
-- Share your thoughts, links, images, or anything you'd like with your audience.
 
 ### Search Page(Not-functional)
 
-- Discover new users and tweets through the search feature.
-- Search for specific users or keywords.
-- Explore a wide range of content within the Hark community.
+- Discover posts through the search feature.
+- Search for specific posts or keywords.
 
 ### User Profile Page
 
-- See a user's posts, followers, and who they are following.
-- Get to know other users better by exploring their activity and posts.
+- See a user's posts and information.
+-Logout from this page.
 
 <h2 align="center">Technologies Used</h2>
 
-- React: A JavaScript library for building user interfaces.
-- Next.js: A React framework for building server-rendered web applications.
+<ul>
+  <li><strong>React:</strong> A JavaScript library for creating dynamic and interactive user interfaces in web applications.</li>
+  <li><strong>Next.js:</strong> An advanced React framework that enables functionalities such as server-side rendering and generating static websites.</li>
+  <li><strong>NeonDB:</strong> A database management system known for its efficiency and scalability in handling complex data operations.</li>
+  <li><strong>Drizzle-ORM:</strong> An object-relational mapping tool, facilitating efficient data manipulation and query building in JavaScript applications.</li>
+  <li><strong>AWS S3:</strong> A scalable cloud storage service provided by Amazon Web Services, ideal for storing and retrieving any amount of data.</li>
+  <li><strong>Crypto:</strong> A core module in Node.js for handling cryptographic functionalities like encryption and data hashing.</li>
+</ul>
 
-<h2 align="center">Disclaimer: Many features are currently for aesthetics only.</h2>
+<h2 align="center">Disclaimer: Some features are currently for aesthetics only.</h2>
 
 <p align="center">
   &copy; 2023 Breadscorner. Licensed under the MIT License.

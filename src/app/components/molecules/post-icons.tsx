@@ -1,4 +1,4 @@
-import LikeIcon from '../atoms/posts/like-icon';
+import LikeIcon from '../../(pages)/likes/like-icon';
 // import CommentIcon from '../atoms/posts/comment-icon';
 // import RTIcon from '../atoms/posts/rt-icon';
 // import ShareIcon from '../atoms/posts/share-icon';

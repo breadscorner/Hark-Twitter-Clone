@@ -1,9 +1,8 @@
 import { likedPostsQuery } from "@/db/queries/postFeed"
-import PostIcons from "@/app/components/molecules/post-icons"
 import Image from "next/image"
 import { auth } from "@/utils/auth"
 import { redirect } from "next/navigation"
-import Unlike from "@/app/components/atoms/unlike-icon"
+import LikeIcon from "./like-icon"
 
 export default async function ProfilePage() {
   const session = await auth();
@@ -39,7 +38,8 @@ export default async function ProfilePage() {
 
               {/* Container for Unlike Component */}
               <div className="ml-auto pr-8">
-                <Unlike />
+                {/* Need to make this component able to render on client side. */}
+                {/* <LikeIcon /> */}
               </div>
             </div>
 

@@ -42,4 +42,6 @@
 
 Some features are currently for aesthetics only.
 
-&copy; 2023 Breadscorner. Licensed under the MIT License.
+<p align="center">
+  &copy; 2023 Breadscorner. Licensed under the MIT License.
+</p>

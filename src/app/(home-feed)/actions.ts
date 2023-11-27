@@ -17,14 +17,14 @@ const s3Client = new S3Client({
 
 export async function deletePost(postId: number) {
   try {
-    // Fetch the media ID associated with the post
+    // Fetch media associated with post
     const post = await db
       .select({ mediaId: postsTable.media })
       .from(postsTable)
       .where(eq(postsTable.id, postId))
       .then(res => res[0]);
 
-    // Delete the post
+    // Delete post
     await db
       .delete(postsTable)
       .where(eq(postsTable.id, postId));
@@ -46,17 +46,17 @@ export async function deletePost(postId: number) {
         };
         await s3Client.send(new DeleteObjectCommand(deleteParams));
 
-        // Delete the media record from the database
+        // Delete media from the database
         await db
           .delete(mediaTable)
           .where(eq(mediaTable.id, post.mediaId));
       }
     }
 
-    // Revalidate the path if necessary
+    // Revalidate path
     revalidatePath("/");
   } catch (e) {
     console.error(e);
-    throw e; // Rethrow the error after logging
+    throw e;
   }
 }

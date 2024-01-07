@@ -1,4 +1,6 @@
-# 🐦 Hark - Twitter Clone 🐦
+# 🐦 Hark 🐦
+
+## Twitter Clone
 
 🌟 Hark is a Twitter clone built with React and Next.js, designed to provide a familiar Twitter-like experience with these core features:
 

@@ -2,7 +2,7 @@ import { likedPostsQuery } from "@/db/queries/postFeed"
 import Image from "next/image"
 import { auth } from "@/utils/auth"
 import { redirect } from "next/navigation"
-import LikeIcon from "./like-icon"
+import LikeIcon from "../../components/atoms/posts/like-icon"
 
 export default async function ProfilePage() {
   const session = await auth();

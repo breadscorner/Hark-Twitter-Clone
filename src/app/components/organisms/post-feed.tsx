@@ -23,6 +23,11 @@ export default function PostFeed({ posts }: { posts: Post[]; }) {
     setIsModalOpen(false);
   };
 
+    const handleDelete = () => {
+      // Implement the logic for deleting a post
+      console.log('Post deleted!');
+    };
+
   return (
 
     <div className="text-center">
@@ -72,7 +77,7 @@ export default function PostFeed({ posts }: { posts: Post[]; }) {
 
             {/* Post Icons */}
             <div className="p-4">
-              <PostIcons />
+              <PostIcons onDelete={handleDelete}/>
             </div>
           </div>
         ))}

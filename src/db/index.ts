@@ -5,6 +5,6 @@ export * from 'drizzle-orm';
  
 neonConfig.fetchConnectionCache = true;
  
-const sql = neon(process.env.DB_URL!);
+const sql = neon(process.env.DATABASE_URL!);
 
 export const db = drizzle(sql, { logger: true });

@@ -6,7 +6,7 @@ import { likes as likesTable } from "@/db/schema/likes";
 import { auth } from "@/utils/auth";
 
 export const toggleLike = async (postId: number) => {
-  
+
   const session = await auth();
   if (!session?.user) {
     // Handle unauthenticated user, maybe throw an error or handle redirection
@@ -32,5 +32,3 @@ export const toggleLike = async (postId: number) => {
     return true; // Return true to indicate the post is liked
   }
 };
-
-// You can add more functions here, like fetching the total likes count, if needed

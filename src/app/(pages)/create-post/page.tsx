@@ -14,7 +14,7 @@ export default async function CreatePostPage() {
 
   return (
     <div className="w-[65%] mx-auto mb-4 p-4 rounded-lg border shadow-md flex justify-center items-center">
-      <CreatePost profileImage={<ProfileImage imageUrl={session.user.image} />} />
+      <CreatePost profileImage={<ProfileImage imageUrl={session?.user?.image} />} />
     </div>
   );
 }

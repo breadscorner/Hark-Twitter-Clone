@@ -4,11 +4,12 @@ import { auth } from "@/utils/auth"
 import { redirect } from "next/navigation";
 
 export default async function CreatePostPage() {
-
   const session = await auth();
 
-  if (!session) {
-    redirect("/api/auth/signin?callbackUrl=/create-post")
+  if (!session || !session.user) {
+    // Redirect if session or user is not available
+    redirect("/api/auth/signin?callbackUrl=/create-post");
+    return null; // Stop further execution
   }
 
   return (

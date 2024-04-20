@@ -27,7 +27,7 @@ export const authConfig: NextAuthConfig = {
       const isProtected = paths.some((path) => nextUrl.pathname.startsWith(path));
 
       if (isProtected && !isLoggedIn) {
-        const redirectUrl = new URL("/api/auth/signin", nextUrl.origin); // Corrected URL format
+        const redirectUrl = new URL("api/auth/signin", nextUrl.origin); // Corrected URL format
         redirectUrl.searchParams.append("callbackUrl", nextUrl.href);
         return redirect(redirectUrl.toString()); // Redirect using the next/navigation redirect function
       }

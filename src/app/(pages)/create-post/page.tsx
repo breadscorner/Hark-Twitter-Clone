@@ -9,7 +9,7 @@ export default async function CreatePostPage() {
   if (!session || !session.user) {
     // Redirect if session or user is not available
     redirect("/api/auth/signin?callbackUrl=/create-post");
-    return;
+    return null; // Stop further execution
   }
 
   return (

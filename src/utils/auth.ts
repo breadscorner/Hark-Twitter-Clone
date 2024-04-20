@@ -1,17 +1,16 @@
-import NextAuth, { NextAuthConfig } from "next-auth";
+import NextAuth, { NextAuthConfig } from "next-auth"
 import GitHubProvider from "next-auth/providers/github";
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
-import { db } from "@/db";
-import { redirect } from "next/navigation"; // Import redirect function
+import { DrizzleAdapter } from "@auth/drizzle-adapter"
+import { db } from "@/db"
 
-export const authConfig: NextAuthConfig = {
+export const authConfig = { 
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET
     })
   ],
-  secret: process.env.NEXTAUTH_SECRET, // Include the secret
+  secret: process.env.NEXTAUTH_SECRET,
   adapter: DrizzleAdapter(db),
   callbacks: {
     async session({ session, user }) {
@@ -21,20 +20,20 @@ export const authConfig: NextAuthConfig = {
       }
       return session;
     },
-    async authorized({ auth, request: { nextUrl } }) {
+    authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const paths = ["/profile", "/create-post"];
       const isProtected = paths.some((path) => nextUrl.pathname.startsWith(path));
 
       if (isProtected && !isLoggedIn) {
-        const redirectUrl = new URL("api/auth/signin", nextUrl.origin); // Corrected URL format
+        const redirectUrl = new URL("api/auth/signin", nextUrl.origin);
         redirectUrl.searchParams.append("callbackUrl", nextUrl.href);
-        return redirect(redirectUrl.toString()); // Redirect using the next/navigation redirect function
+        return Response.redirect(redirectUrl);
       }
       
       return true;
     },
   }
-};
+} satisfies NextAuthConfig;
 
 export const { handlers, auth, signOut } = NextAuth(authConfig);
